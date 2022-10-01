@@ -27,9 +27,8 @@ public class Egg : MonoBehaviour
         textMesh.text = activeKey.ToString();
     }
 
-    void Start()
-    {
-        SetKeyCode(keyCodes[Random.Range(0, keyCodes.Count)]);
+    public KeyCode GetKeyCode() {
+        return activeKey;
     }
 
     void Update()
@@ -56,7 +55,7 @@ public class Egg : MonoBehaviour
             nextEgg.isActive = true;
         }
         else {
-            //Minigame done
+            //TODO: Minigame done, change scene to farm scene
         }
         Destroy(gameObject);
     }
