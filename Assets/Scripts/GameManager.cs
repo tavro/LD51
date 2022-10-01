@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsPaused { private set; get; }
+    public bool IsPaused { set; get; }
 
     private List<Notification> notifications;
 
