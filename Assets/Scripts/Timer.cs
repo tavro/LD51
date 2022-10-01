@@ -6,15 +6,20 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public TextMeshProUGUI textMesh;
-    public float maxTime = 10.0f;
-    float timePassed = 0.0f;
+    public float maxTime = 11.0f;
+    public float startTime = 1.0f;
+    float timePassed;
+
+    void Start() {
+        timePassed = startTime;
+    }
 
     void Update()
     {
         timePassed += Time.deltaTime;
         if(timePassed >= maxTime) {
-            timePassed = 0.0f;
+            timePassed = startTime;
         }
-        textMesh.text = timePassed.ToString();
+        textMesh.text = ((int)timePassed).ToString();
     }
 }
