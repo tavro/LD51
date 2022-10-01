@@ -30,7 +30,7 @@ public class Egg : MonoBehaviour
     public KeyCode GetKeyCode() {
         return activeKey;
     }
-    
+
     void Update()
     {
         if(isActive) {
@@ -55,7 +55,7 @@ public class Egg : MonoBehaviour
             nextEgg.isActive = true;
         }
         else {
-            //Minigame done
+            //TODO: Minigame done, change scene to farm scene
         }
         Destroy(gameObject);
     }
