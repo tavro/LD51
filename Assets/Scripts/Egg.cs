@@ -32,15 +32,23 @@ public class Egg : MonoBehaviour
             }
             else*/ 
             if(Input.GetKeyDown(activeKey)) {
-                // Add egg to inventory
+                AddToInventory();
                 RemoveEgg();
             }
         }
     }
 
+    void AddToInventory() {
+        Inventory inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        inventory.eggAmount++;
+    }
+
     void RemoveEgg() {
         if(nextEgg) {
             nextEgg.isActive = true;
+        }
+        else {
+            //Minigame done
         }
         Destroy(gameObject);
     }
