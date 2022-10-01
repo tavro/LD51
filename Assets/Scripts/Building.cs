@@ -8,12 +8,11 @@ public class Building : MonoBehaviour, IInteractable
 {
     [SerializeField] private string minigameSceneName; 
     [SerializeField] private string interactionDesc;
-
-    private int dayLastInteracted = 1;
+    [SerializeField] private string interactionKey;
 
 	public void OnInteraction()
     {
-        dayLastInteracted = GameManager.Instance.Day;
+        GameManager.Instance.InteractWithBuilding(interactionKey);
         SceneManager.LoadScene(minigameSceneName);
     }
 

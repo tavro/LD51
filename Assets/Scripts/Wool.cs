@@ -11,12 +11,13 @@ public class Wool : MonoBehaviour
     }
 
     void Update() {
-        if(transform.parent == null) {
+        if(!GameManager.Instance.IsPaused && transform.parent == null) {
             if(sr.color.a > 0.0f) {
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
             }
             else {
-                GameObject.Find("Inventory").GetComponent<Inventory>().woolAmount++;
+                Inventory inventory = GameManager.Instance.Inventory;
+                inventory.woolAmount++;
                 Destroy(gameObject);
             }
         }

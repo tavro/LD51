@@ -18,6 +18,16 @@ public class Egg : MonoBehaviour
     Egg nextEgg;
 
     public bool isActive;
+    bool isRemoved;
+
+    Vector2 offsetPos;
+
+    SpriteRenderer sr;
+
+    void Start() {
+        offsetPos = new Vector2(transform.position.x, transform.position.y - 0.15f);
+        sr = GetComponent<SpriteRenderer>();
+    }
 
     public void SetNextEgg(Egg egg) {
         nextEgg = egg;
@@ -34,20 +44,38 @@ public class Egg : MonoBehaviour
 
     void Update()
     {
-        if(isActive) {
-            /*if(Input.anyKey && !Input.GetKeyDown(activeKey)) {
-                RemoveEgg();
+        if (!GameManager.Instance.IsPaused)
+        {
+            if(isRemoved) {
+                transform.position = new Vector2(transform.position.x, transform.position.y + Time.deltaTime);
+                if(sr.color.a > 0.0f) {
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
+                }
+                else {
+                    if(!nextEgg) {
+                        SceneManager.LoadScene("FarmScene");
+                    }
+                    Destroy(gameObject);
+                }
             }
-            else*/
-            if(Input.GetKeyDown(activeKey)) {
-                AddToInventory();
-                RemoveEgg();
+            else {
+                if(isActive) {
+                    if(Input.GetKeyUp(activeKey)) {
+                        AddToInventory();
+                        RemoveEgg();
+                    }
+                    if(Input.anyKey) {
+                        if(transform.position.y != offsetPos.y) {
+                            transform.position = offsetPos;
+                        }
+                    }
+                }
             }
         }
     }
 
     void AddToInventory() {
-        Inventory inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        Inventory inventory = GameManager.Instance.Inventory;
         inventory.eggAmount++;
     }
 
@@ -55,10 +83,7 @@ public class Egg : MonoBehaviour
         if(nextEgg) {
             nextEgg.isActive = true;
         }
-        else {
-            SceneManager.LoadScene("FarmScene");
-        }
-        Destroy(gameObject);
+        isRemoved = true;
     }
 
 }

@@ -14,6 +14,9 @@ public class EggHandler : MonoBehaviour
 
     void Start()
     {
+        //TODO: Find out how many days passed since last time
+        amount = amount + GameManager.Instance.DaysSinceInteraction;
+
         for(int i = 0; i < amount; i++) {
             Vector2 position = new Vector2(-(amount/2.0f) + i * 1.5f, 0.0f);
             GameObject temp = Instantiate(eggPrefab, position, Quaternion.identity);

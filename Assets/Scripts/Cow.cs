@@ -34,36 +34,40 @@ public class Cow : MonoBehaviour
     
     GameObject temp;
     void Update() {
-        if(!isReady) {
-            timePassed += Time.deltaTime;
-            if(timePassed >= timeout) {
-                timePassed = 0.0f;
-                isReady = true;
-            }
-        }
-        else {
-            if(Input.GetMouseButtonUp(0)) {
-                if(temp) {
-                    Destroy(temp);
+        if (!GameManager.Instance.IsPaused)
+        {
+            if(!isReady) {
+                timePassed += Time.deltaTime;
+                if(timePassed >= timeout) {
+                    timePassed = 0.0f;
+                    isReady = true;
                 }
-                isReady = false;
             }
-        }
+            else {
+                if(Input.GetMouseButtonUp(0)) {
+                    if(temp) {
+                        Destroy(temp);
+                    }
+                    isReady = false;
+                }
+            }
 
-        float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
-        if(Vector2.Distance(transform.position, target) <= 0.01f) {
-            GetNewTargetPosition();
+            float step = speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target, step);
+            if(Vector2.Distance(transform.position, target) <= 0.01f) {
+                GetNewTargetPosition();
+            }
         }
     }
 
     public void Milk() {
-        GameObject.Find("Inventory").GetComponent<Inventory>().milkAmount++;
+        Inventory inventory = GameManager.Instance.Inventory;
+        inventory.milkAmount++;
         isReady = false;
     }
 
     void OnMouseOver() {
-        if(isReady) {
+        if(!GameManager.Instance.IsPaused && isReady) {
             if(Input.GetMouseButtonDown(0)) {
                 Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y - 1.0f);
                 temp = Instantiate(targetPrefab, pos, Quaternion.identity);
