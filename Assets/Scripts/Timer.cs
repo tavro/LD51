@@ -5,10 +5,19 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI textMesh;
-    public float maxTime = 11.0f;
-    public float startTime = 1.0f;
+    [SerializeField]
+    List<Notification> notifications = new List<Notification>();
+
+    [SerializeField]
+    TextMeshProUGUI textMesh;
+
+    [SerializeField]
+    float maxTime = 11.0f;
+    [SerializeField]
+    float startTime = 1.0f;
+
     float timePassed;
+    int day = 1;
 
     void Start() {
         timePassed = startTime;
@@ -19,7 +28,15 @@ public class Timer : MonoBehaviour
         timePassed += Time.deltaTime;
         if(timePassed >= maxTime) {
             timePassed = startTime;
+            day++;
+            foreach (Notification notification in notifications) {
+                notification.Notify();
+            }
         }
-        textMesh.text = ((int)timePassed).ToString();
+        textMesh.text = "Day " + day + ":" + ((int)timePassed).ToString();
+    }
+
+    public void AddNotification(Notification notification) {
+        notifications.Add(notification);
     }
 }
