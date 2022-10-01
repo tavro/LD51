@@ -18,6 +18,10 @@ public class Egg : MonoBehaviour
 
     public bool isActive;
 
+    public void SetNextEgg(Egg egg) {
+        nextEgg = egg;
+    }
+
     void Start()
     {
         activeKey = keyCodes[Random.Range(0, keyCodes.Count)];
