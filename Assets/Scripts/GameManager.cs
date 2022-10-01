@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public int DaysSinceInteraction { private set; get; }
 
     public Inventory Inventory { private set; get; }
+    public CoinManager CoinManager { private set; get; }
 
     private void Awake()
     {
