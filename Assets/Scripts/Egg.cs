@@ -22,8 +22,14 @@ public class Egg : MonoBehaviour
         nextEgg = egg;
     }
 
+    public void SetKeyCode(KeyCode key) {
+        activeKey = keyCodes[Random.Range(0, keyCodes.Count)];
+        textMesh.text = activeKey.ToString();
+    }
+
     void Start()
     {
+        //SetKeyCode();
         activeKey = keyCodes[Random.Range(0, keyCodes.Count)];
         textMesh.text = activeKey.ToString();
     }
