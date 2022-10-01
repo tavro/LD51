@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public int eggAmount = 0;
     public int woolAmount = 0;
+    public int milkAmount = 0;
 
     void Start()
     {
