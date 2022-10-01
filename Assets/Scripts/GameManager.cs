@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     }
 
     private List<Notification> notifications;
+    public void AddNotification(Notification notification) {
+        notifications.Add(notification);
+    }
 
     private const float DAY_LENGTH = 10.0f;
     private float dayTimer;
