@@ -9,6 +9,8 @@ public class EggHandler : MonoBehaviour
     Egg lastEgg;
 
     public int amount = 3;
+    string word = "";
+    int wordIndex = 0;
 
     void Start()
     {
@@ -20,8 +22,14 @@ public class EggHandler : MonoBehaviour
             }
             else {
                 temp.GetComponent<Egg>().isActive = true;
+                if(word == "") {
+                    word = DictionaryProcessor.GetWordOfLength(amount);
+                }
             }
             lastEgg = temp.GetComponent<Egg>();
+            KeyCode code = DictionaryProcessor.StringToKeyCode(word[wordIndex].ToString());
+            lastEgg.SetKeyCode(code);
+            wordIndex++;
         }
         lastEgg.isActive = false;
     }

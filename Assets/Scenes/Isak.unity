@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eggPrefab: {fileID: 6498358281319126553, guid: 823c4f301a8b56d4a9988e860d3d90af, type: 3}
-  amount: 10
+  amount: 3
 --- !u!1 &1616147086
 GameObject:
   m_ObjectHideFlags: 0

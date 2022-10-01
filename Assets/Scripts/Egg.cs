@@ -27,11 +27,10 @@ public class Egg : MonoBehaviour
         textMesh.text = activeKey.ToString();
     }
 
-    void Start()
-    {
-        SetKeyCode(keyCodes[Random.Range(0, keyCodes.Count)]);
+    public KeyCode GetKeyCode() {
+        return activeKey;
     }
-
+    
     void Update()
     {
         if(isActive) {
