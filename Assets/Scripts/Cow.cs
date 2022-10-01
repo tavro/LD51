@@ -58,7 +58,8 @@ public class Cow : MonoBehaviour
     }
 
     public void Milk() {
-        GameObject.Find("Inventory").GetComponent<Inventory>().milkAmount++;
+        Inventory inventory = GameManager.Instance.Inventory;
+        inventory.milkAmount++;
         isReady = false;
     }
 

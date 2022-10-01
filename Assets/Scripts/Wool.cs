@@ -16,7 +16,8 @@ public class Wool : MonoBehaviour
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
             }
             else {
-                GameObject.Find("Inventory").GetComponent<Inventory>().woolAmount++;
+                Inventory inventory = GameManager.Instance.Inventory;
+                inventory.woolAmount++;
                 Destroy(gameObject);
             }
         }

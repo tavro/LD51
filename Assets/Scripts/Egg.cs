@@ -47,7 +47,7 @@ public class Egg : MonoBehaviour
     }
 
     void AddToInventory() {
-        Inventory inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        Inventory inventory = GameManager.Instance.Inventory;
         inventory.eggAmount++;
     }
 
