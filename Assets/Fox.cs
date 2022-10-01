@@ -14,13 +14,16 @@ public class Fox : MonoBehaviour
     }
 
     void Update() {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, target.transform.position, step);
-        if(Vector2.Distance(transform.position, target.transform.position) <= 0.01f) {
-            if(target.transform.childCount > 0) {
-                Destroy(target.transform.GetChild(0).gameObject);
+        if (!GameManager.Instance.IsPaused)
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, step);
+            if(Vector2.Distance(transform.position, target.transform.position) <= 0.01f) {
+                if(target.transform.childCount > 0) {
+                    Destroy(target.transform.GetChild(0).gameObject);
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }

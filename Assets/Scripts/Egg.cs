@@ -44,27 +44,30 @@ public class Egg : MonoBehaviour
 
     void Update()
     {
-        if(isRemoved) {
-            transform.position = new Vector2(transform.position.x, transform.position.y + Time.deltaTime);
-            if(sr.color.a > 0.0f) {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
+        if (!GameManager.Instance.IsPaused)
+        {
+            if(isRemoved) {
+                transform.position = new Vector2(transform.position.x, transform.position.y + Time.deltaTime);
+                if(sr.color.a > 0.0f) {
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
+                }
+                else {
+                    if(!nextEgg) {
+                        SceneManager.LoadScene("FarmScene");
+                    }
+                    Destroy(gameObject);
+                }
             }
             else {
-                if(!nextEgg) {
-                    SceneManager.LoadScene("FarmScene");
-                }
-                Destroy(gameObject);
-            }
-        }
-        else {
-            if(isActive) {
-                if(Input.GetKeyUp(activeKey)) {
-                    AddToInventory();
-                    RemoveEgg();
-                }
-                if(Input.anyKey) {
-                    if(transform.position.y != offsetPos.y) {
-                        transform.position = offsetPos;
+                if(isActive) {
+                    if(Input.GetKeyUp(activeKey)) {
+                        AddToInventory();
+                        RemoveEgg();
+                    }
+                    if(Input.anyKey) {
+                        if(transform.position.y != offsetPos.y) {
+                            transform.position = offsetPos;
+                        }
                     }
                 }
             }

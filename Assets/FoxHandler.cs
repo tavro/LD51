@@ -12,7 +12,7 @@ public class FoxHandler : MonoBehaviour
 
     void Update()
     {
-        if(GameObject.Find("Farm").transform.childCount > 0) {
+        if(!GameManager.Instance.IsPaused && GameObject.Find("Farm").transform.childCount > 0) {
             timePassed += Time.deltaTime;
             if(timePassed >= spawnTime) {
                 timePassed = 0.0f;

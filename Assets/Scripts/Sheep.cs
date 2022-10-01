@@ -34,31 +34,33 @@ public class Sheep : MonoBehaviour
     }
 
     void Update() {
-        if(growth < maxGrowth) {
-            timePassed += Time.deltaTime;
-            if(timePassed >= growTime) {
-                timePassed = 0.0f;
-                Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
-                GameObject temp = Instantiate(woolPrefab, pos, Quaternion.identity);
-                temp.transform.parent = transform;
-                growth++;
+        if (!GameManager.Instance.IsPaused)
+        {
+            if(growth < maxGrowth) {
+                timePassed += Time.deltaTime;
+                if(timePassed >= growTime) {
+                    timePassed = 0.0f;
+                    Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
+                    GameObject temp = Instantiate(woolPrefab, pos, Quaternion.identity);
+                    temp.transform.parent = transform;
+                    growth++;
+                }
             }
-        }
 
-        float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
-        if(Vector2.Distance(transform.position, target) <= 0.01f) {
-            GetNewTargetPosition();
+            float step = speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target, step);
+            if(Vector2.Distance(transform.position, target) <= 0.01f) {
+                GetNewTargetPosition();
+            }
         }
     }
 
     void OnMouseOver() {
-        if(transform.childCount > 0) {
-            if(Input.GetMouseButtonDown(0)) {
-                int childIndex = Random.Range(0, transform.childCount);
-                Transform child = transform.GetChild(childIndex);
-                child.parent = null;
-            }
+        if(!GameManager.Instance.IsPaused && transform.childCount > 0 && Input.GetMouseButtonDown(0))
+        {
+            int childIndex = Random.Range(0, transform.childCount);
+            Transform child = transform.GetChild(childIndex);
+            child.parent = null;
         }
     }
 }
