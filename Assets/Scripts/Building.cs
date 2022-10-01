@@ -7,9 +7,15 @@ using UnityEngine.SceneManagement;
 public class Building : MonoBehaviour, IInteractable
 {
     [SerializeField] private string minigameSceneName; 
+    [SerializeField] private string interactionDesc;
 
 	public void OnInteraction()
     {
         SceneManager.LoadScene(minigameSceneName);
+    }
+
+    public string GetInteractionDesc()
+    {
+        return interactionDesc;
     }
 }
