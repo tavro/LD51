@@ -19,4 +19,9 @@ public class LetterBox : MonoBehaviour, IInteractable
     {
         activeLetter.gameObject.SetActive(true);
     }
+
+    public string GetInteractionDesc()
+    {
+        return "Read Letter";
+    }
 }

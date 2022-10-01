@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(Controller2D))]
 public class Player : MonoBehaviour, ITriggerListener
 {
     [SerializeField] private float moveSpeed;
     private Vector2 velocity;
+
+    [SerializeField] private TextMeshProUGUI interactionTextUI;
 
 	private Controller2D controller;
 
@@ -32,7 +35,12 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerEnter(GameObject obj)
     {
-        // TODO: if entering interactable, show UI instruction (e.g. "E - Read Letter")
+        if (obj.tag == "Interactable")
+        {
+            IInteractable interactable = obj.GetComponent<IInteractable>();
+            interactionTextUI.gameObject.SetActive(true);
+            interactionTextUI.SetText($"E - {interactable.GetInteractionDesc()}"); // TODO: Get interaction description instead.
+        }
     }
 
     public void TriggerStay(GameObject obj)
@@ -46,6 +54,9 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerExit(GameObject obj)
     {
-        // TODO: if exiting interactable, hide UI instruction
+        if (obj.tag == "Interactable")
+        {
+            interactionTextUI.gameObject.SetActive(false);
+        }
     }
 }

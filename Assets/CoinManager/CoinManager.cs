@@ -22,17 +22,15 @@ public class CoinManager : MonoBehaviour
         PlayerPrefs.SetInt(Coins, coins);
         coins = PlayerPrefs.GetInt(Coins);
         PlayerPrefs.Save();
-        Debug.Log(coins);
     }
-    public static void Buy(int price)
+    public static void Buy(Buyable item)
     {
-        coins -= price;
-
+        coins -= item.GetPrice();
         UpdateCoins();
     }
-    public static void Sell(int price)
+    public static void Sell(Buyable item)
     {
-        coins += price;
+        coins += item.GetPrice();
         UpdateCoins();
     }
 }

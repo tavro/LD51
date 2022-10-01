@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
+using UnityEngine.UI;
 
-public interface IInteractable
+public class ShopEgg : Sellable
 {
-	void OnInteraction();
-	string GetInteractionDesc();
+
 }

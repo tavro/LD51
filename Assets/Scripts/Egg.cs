@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Egg : MonoBehaviour
@@ -27,9 +28,8 @@ public class Egg : MonoBehaviour
         textMesh.text = activeKey.ToString();
     }
 
-    void Start()
-    {
-        SetKeyCode(keyCodes[Random.Range(0, keyCodes.Count)]);
+    public KeyCode GetKeyCode() {
+        return activeKey;
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class Egg : MonoBehaviour
             /*if(Input.anyKey && !Input.GetKeyDown(activeKey)) {
                 RemoveEgg();
             }
-            else*/ 
+            else*/
             if(Input.GetKeyDown(activeKey)) {
                 AddToInventory();
                 RemoveEgg();
@@ -56,7 +56,7 @@ public class Egg : MonoBehaviour
             nextEgg.isActive = true;
         }
         else {
-            //Minigame done
+            SceneManager.LoadScene("FarmScene");
         }
         Destroy(gameObject);
     }
