@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Egg : MonoBehaviour
@@ -37,7 +38,7 @@ public class Egg : MonoBehaviour
             /*if(Input.anyKey && !Input.GetKeyDown(activeKey)) {
                 RemoveEgg();
             }
-            else*/ 
+            else*/
             if(Input.GetKeyDown(activeKey)) {
                 AddToInventory();
                 RemoveEgg();
@@ -55,7 +56,7 @@ public class Egg : MonoBehaviour
             nextEgg.isActive = true;
         }
         else {
-            //TODO: Minigame done, change scene to farm scene
+            SceneManager.LoadScene("FarmScene");
         }
         Destroy(gameObject);
     }
