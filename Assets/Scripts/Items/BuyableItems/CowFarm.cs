@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Buyable
+public class CowFarm : Buyable
 {
-    string GetName();
-    int GetPrice();
+
 }

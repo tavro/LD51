@@ -10,6 +10,7 @@ public class CoinDisplay : MonoBehaviour
     void Start()
     {
         text = GetComponent<Text>();
+        Update();
     }
 
     // Update is called once per frame
