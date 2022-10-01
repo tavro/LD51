@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public bool IsPaused { set; get; }
 
     private List<Notification> notifications;
+    public void AddNotification(Notification notification) {
+        notifications.Add(notification);
+    }
 
     private const float DAY_LENGTH = 10.0f;
     private float dayTimer;

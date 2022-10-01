@@ -14,6 +14,7 @@ public class Notification : MonoBehaviour
 
     void Start() {
         sr = GetComponent<SpriteRenderer>();
+        GameManager.Instance.AddNotification(this);
     }
 
     void Update() {
