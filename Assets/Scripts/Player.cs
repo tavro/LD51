@@ -38,6 +38,12 @@ public class Player : MonoBehaviour, ITriggerListener
     public void TriggerStay(GameObject obj)
     {
         Debug.Log($"Stayed trigger: {obj.name}");
+        
+        if (obj.tag == "Interactable" && Input.GetButtonDown("Interact"))
+        {
+            IInteractable interactable = obj.GetComponent<IInteractable>();
+            interactable.OnInteraction();
+        }
     }
 
     public void TriggerExit(GameObject obj)
