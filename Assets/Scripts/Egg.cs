@@ -34,7 +34,7 @@ public class Egg : MonoBehaviour
 
     void Update()
     {
-        if(isActive) {
+        if(!GameManager.Instance.IsPaused && isActive) {
             /*if(Input.anyKey && !Input.GetKeyDown(activeKey)) {
                 RemoveEgg();
             }

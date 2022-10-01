@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+
+    public bool IsPaused { private set; get; }
 
     private List<Notification> notifications;
 
@@ -34,16 +37,31 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        dayTimer += Time.deltaTime;
-        if (dayTimer >= DAY_LENGTH)
+        if (Input.GetButtonDown("Pause"))
+            IsPaused = !IsPaused;
+
+        if (!IsPaused && GetState() == State.FARM)
         {
-            dayTimer %= DAY_LENGTH; // Keeps the extra remainder
-            Day += 1;
+            dayTimer += Time.deltaTime;
+            if (dayTimer >= DAY_LENGTH)
+            {
+                dayTimer %= DAY_LENGTH; // Keeps the extra remainder
+                Day += 1;
 
-            foreach (Notification notification in notifications)
-                notification.Notify();
+                foreach (Notification notification in notifications)
+                    notification.Notify();
 
-            Debug.Log($"Current day: {Day}"); // TODO: remove (debug purposes)
+                Debug.Log($"Current day: {Day}"); // TODO: remove (debug purposes)
+            }
         }
     }
+
+    public State GetState() { 
+        Scene currScene = SceneManager.GetActiveScene();
+        if (currScene.name == "FarmScene")
+            return State.FARM;
+        return State.MINIGAME;
+    }
+
+    public enum State { FARM, MINIGAME }
 }

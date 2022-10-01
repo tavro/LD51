@@ -25,12 +25,15 @@ public class Player : MonoBehaviour, ITriggerListener
 
     private void Update()
     {
-        float horizontalMoveDir = Input.GetAxisRaw("Horizontal");
-        float verticalMoveDir = Input.GetAxisRaw("Vertical");
+        if (!GameManager.Instance.IsPaused)
+        {
+            float horizontalMoveDir = Input.GetAxisRaw("Horizontal");
+            float verticalMoveDir = Input.GetAxisRaw("Vertical");
 
-        velocity = Vector2.right * horizontalMoveDir + Vector2.up * verticalMoveDir;
-        velocity.Normalize();
-        controller.Move(velocity * moveSpeed * Time.deltaTime);
+            velocity = Vector2.right * horizontalMoveDir + Vector2.up * verticalMoveDir;
+            velocity.Normalize();
+            controller.Move(velocity * moveSpeed * Time.deltaTime);
+        }
     }
 
     public void TriggerEnter(GameObject obj)
