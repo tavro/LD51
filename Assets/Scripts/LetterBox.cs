@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LetterBox : MonoBehaviour
+public class LetterBox : MonoBehaviour, IInteractable
 {
     [SerializeField]
     Letter activeLetter;
@@ -15,9 +15,8 @@ public class LetterBox : MonoBehaviour
         activeLetter.SetContent("Content of letter");
     }
 
-    void OnMouseOver() {
-        if(Input.GetMouseButtonDown(0)) {
-            activeLetter.gameObject.SetActive(true);
-        }
+    public void OnInteraction()
+    {
+        activeLetter.gameObject.SetActive(true);
     }
 }
