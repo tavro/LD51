@@ -32,13 +32,11 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerEnter(GameObject obj)
     {
-        Debug.Log($"Entered trigger: {obj.name}");
+        // TODO: if entering interactable, show UI instruction (e.g. "E - Read Letter")
     }
 
     public void TriggerStay(GameObject obj)
     {
-        Debug.Log($"Stayed trigger: {obj.name}");
-        
         if (obj.tag == "Interactable" && Input.GetButtonDown("Interact"))
         {
             IInteractable interactable = obj.GetComponent<IInteractable>();
@@ -48,6 +46,6 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerExit(GameObject obj)
     {
-        Debug.Log($"Exited trigger: {obj.name}");
+        // TODO: if exiting interactable, hide UI instruction
     }
 }
