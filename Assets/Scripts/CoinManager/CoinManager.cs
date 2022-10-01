@@ -10,6 +10,7 @@ public class CoinManager : MonoBehaviour
     void Start()
     {
         coins = PlayerPrefs.GetInt(Coins);
+        UpdateCoins();
     }
 
     // Update is called once per frame
@@ -25,12 +26,12 @@ public class CoinManager : MonoBehaviour
     }
     public static void Buy(Buyable item)
     {
-        coins -= item.GetPrice();
+        coins -= item.price;
         UpdateCoins();
     }
     public static void Sell(Buyable item)
     {
-        coins += item.GetPrice();
+        coins += item.price;
         UpdateCoins();
     }
 }
