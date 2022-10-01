@@ -26,7 +26,10 @@ public class GameManager : MonoBehaviour
 
     private const float DAY_LENGTH = 10.0f;
     private float dayTimer;
-    public int Day { private set; get; } // TODO: integrate timer fully
+    public int Day { private set; get; }
+    
+    private Dictionary<string, int> buildingInteractionDays;  
+    public int DaysSinceInteraction { private set; get; }
 
     public Inventory Inventory { private set; get; }
 
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
         Inventory = new Inventory();
         notifications = new List<Notification>();
         Day = 1;
+        buildingInteractionDays = new Dictionary<string, int>();
     }
 
     private void Update()
@@ -57,6 +61,13 @@ public class GameManager : MonoBehaviour
                 Debug.Log($"Current day: {Day}"); // TODO: remove (debug purposes)
             }
         }
+    }
+
+    public void InteractWithBuilding(string key)
+    {
+        DaysSinceInteraction = Day - buildingInteractionDays.GetValueOrDefault(key, 1);
+        buildingInteractionDays[key] = Day;
+        Debug.Log($"Days since interaction: {DaysSinceInteraction}");
     }
 
     public State GetState() { 

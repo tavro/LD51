@@ -963,6 +963,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameSceneName: EggScene
   interactionDesc: Collect Eggs (minigame)
+  interactionKey: Coop
 --- !u!212 &1304405059
 SpriteRenderer:
   m_ObjectHideFlags: 0
