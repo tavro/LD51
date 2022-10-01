@@ -42,7 +42,8 @@ public class Sheep : MonoBehaviour
                 timePassed += Time.deltaTime;
                 if(timePassed >= growTime) {
                     timePassed = 0.0f;
-                    Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(-0.5f, 0.5f));
+                    float woolOffset = 0.35f;
+                    Vector2 pos = new Vector2(transform.position.x + Random.Range(-woolOffset, woolOffset), transform.position.y + Random.Range(-woolOffset, woolOffset));
                     GameObject temp = Instantiate(woolPrefab, pos, Quaternion.identity);
                     temp.transform.parent = transform;
                     growth++;
@@ -67,6 +68,7 @@ public class Sheep : MonoBehaviour
             }
             while(child.gameObject.name == "sprite-sheep-body");
             child.parent = null;
+            growth--;
         }
     }
 }
