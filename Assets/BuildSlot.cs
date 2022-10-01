@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BuildSlot : MonoBehaviour, IInteractable
 {
-    public void OnInteraction() {
+    [SerializeField]
+    GameObject buildingsUI;
 
+    public void OnInteraction() {
+        BuildHandler bh = buildingsUI.GetComponent<BuildHandler>();
+        bh.SetBuildSlot(this);
+        buildingsUI.SetActive(true);
     }
 
     public string GetInteractionDesc() {

@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EggScene.unity
     guid: c1fe3b5ce9f193745bc75df5deaf483d
+  - enabled: 1
+    path: Assets/Scenes/SheepScene.unity
+    guid: 6d78a12e7977e644a9b129499715a7e7
+  - enabled: 1
+    path: Assets/Scenes/FarmingGameScene.unity
+    guid: 7ba5261ac73aeab4698d4607096be51c
+  - enabled: 1
+    path: Assets/Scenes/CowScene.unity
+    guid: a537207bf127eba4ab5f27fc262c0bc8
   m_configObjects: {}
