@@ -31,13 +31,22 @@ public class Cow : MonoBehaviour
         GetRandomStartPosition();
         GetNewTargetPosition();
     }
-
+    
+    GameObject temp;
     void Update() {
         if(!isReady) {
             timePassed += Time.deltaTime;
             if(timePassed >= timeout) {
                 timePassed = 0.0f;
                 isReady = true;
+            }
+        }
+        else {
+            if(Input.GetMouseButtonUp(0)) {
+                if(temp) {
+                    Destroy(temp);
+                }
+                isReady = false;
             }
         }
 
@@ -57,11 +66,8 @@ public class Cow : MonoBehaviour
         if(isReady) {
             if(Input.GetMouseButtonDown(0)) {
                 Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y - 1.0f);
-                GameObject temp = Instantiate(targetPrefab, pos, Quaternion.identity);
+                temp = Instantiate(targetPrefab, pos, Quaternion.identity);
                 temp.GetComponent<Target>().targetCow = this;
-            }
-            if(Input.GetMouseButtonUp(0)) {
-                //Destroy target
             }
         }
     }
