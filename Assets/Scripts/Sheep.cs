@@ -17,19 +17,21 @@ public class Sheep : MonoBehaviour
     int growth;
     int maxGrowth = 10;
     Vector2 target;
+    Vector2 startPos;
 
     void GetRandomStartPosition() {
         transform.position = new Vector2(Random.Range(-8.0f, 8.0f), Random.Range(-4.0f, 4.0f));
     }
 
     void GetNewTargetPosition() {
-        float randomX = Random.Range(transform.position.x - offset, transform.position.x + offset);
-        float randomY = Random.Range(transform.position.y - offset, transform.position.y + offset);
+        float randomX = Random.Range(startPos.x - offset, startPos.x + offset);
+        float randomY = Random.Range(startPos.y - offset, startPos.y + offset);
         target = new Vector2(randomX, randomY);
     }
 
     void Start() {
         GetRandomStartPosition();
+        startPos = transform.position; 
         GetNewTargetPosition();
     }
 
@@ -56,10 +58,14 @@ public class Sheep : MonoBehaviour
     }
 
     void OnMouseOver() {
-        if(!GameManager.Instance.IsPaused && transform.childCount > 0 && Input.GetMouseButtonDown(0))
+        if(!GameManager.Instance.IsPaused && transform.childCount > 1 && Input.GetMouseButtonDown(0))
         {
-            int childIndex = Random.Range(0, transform.childCount);
-            Transform child = transform.GetChild(childIndex);
+            Transform child;
+            do {
+                int childIndex = Random.Range(0, transform.childCount);
+                child = transform.GetChild(childIndex);
+            }
+            while(child.gameObject.name == "sprite-sheep-body");
             child.parent = null;
         }
     }
