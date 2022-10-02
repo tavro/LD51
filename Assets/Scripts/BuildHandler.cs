@@ -31,24 +31,32 @@ public class BuildHandler : MonoBehaviour
     bool canBuySheepFarm = true;
     bool canBuyCowFarm = true;
     bool canBuyFarmFarm = true;
+
+    [SerializeField] GameObject sheepUI;
+    [SerializeField] GameObject cowUI;
+    [SerializeField] GameObject farmUI;
+
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
             Instantiate(sheepFarmPrefab, buildSlot.transform.position, Quaternion.identity);
             GameManager.Instance.AddBuilding("SheepFarm", buildSlot.transform.position);
             DestroyBuildSlot();
             canBuySheepFarm = false;
+            sheepUI.gameObject.SetActive(false);
         }
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
             Instantiate(cowFarmPrefab, buildSlot.transform.position, Quaternion.identity);
             GameManager.Instance.AddBuilding("CowFarm", buildSlot.transform.position);
             DestroyBuildSlot();
             canBuyCowFarm = false;
+            cowUI.gameObject.SetActive(false);
         }
         else if(canBuyFarmFarm && Input.GetKeyDown(KeyCode.F)) {
             Instantiate(farmPrefab, buildSlot.transform.position, Quaternion.identity);
             GameManager.Instance.AddBuilding("FarmFarm", buildSlot.transform.position);
             DestroyBuildSlot();
             canBuyFarmFarm = false;
+            farmUI.gameObject.SetActive(false);
         }
     }
 }
