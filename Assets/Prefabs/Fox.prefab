@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   approachSpeed: 2
   fleeSpeed: 5
+  dustEffectPrefab: {fileID: 2281546748736265383, guid: 0c1cc99a167e39d998eb8efa15732a37, type: 3}
 --- !u!61 &-8559018226155981182
 BoxCollider2D:
   m_ObjectHideFlags: 0
