@@ -297,14 +297,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Walk Up 7: 150771281
+      Player_Walk Up 2: -782367892
       Player_Walk Up 8: -1144230716
       Player_Walk Up 1: -1862784441
       Player_Walk Up 3: -1420725486
       Player_Walk Up 4: -653808960
       Player_Walk Up 6: 254268886
       Player_Walk Up 5: -803370337
-      Player_Walk Up 2: -782367892
+      Player_Walk Up 7: 150771281
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

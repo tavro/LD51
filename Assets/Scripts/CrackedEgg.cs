@@ -27,7 +27,7 @@ public class CrackedEgg : MonoBehaviour
         target2 = new Vector2(child2.transform.position.x + Random.Range(-1.0f, 1.0f), child2.transform.position.y - Random.Range(0.25f, 1.0f));
     }
 
-    void DecreaseOpasity(SpriteRenderer sr) {
+    void DecreaseOpacity(SpriteRenderer sr) {
         if(sr.color.a >= 0.0f) {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
         }
@@ -43,8 +43,8 @@ public class CrackedEgg : MonoBehaviour
 
     void Update()
     {
-        DecreaseOpasity(sr1);
-        DecreaseOpasity(sr2);   
+        DecreaseOpacity(sr1);
+        DecreaseOpacity(sr2);   
         MoveTowards(child1, target1);  
         MoveTowards(child2, target2);
     }
