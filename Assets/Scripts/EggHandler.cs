@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EggHandler : MonoBehaviour
 {
-    [SerializeField]
-    GameObject eggPrefab;
-    Egg lastEgg;
+    [SerializeField] private Egg eggPrefab;
+    [SerializeField] private float eggInterval;
+    private Egg lastEgg;
 
     public int amount = 3;
     public int maxAmount = 8;
@@ -17,23 +17,24 @@ public class EggHandler : MonoBehaviour
     void Start()
     {
         amount = amount + GameManager.Instance.DaysSinceInteraction;
-        if(amount > maxAmount) {
+        if(amount > maxAmount)
             amount = maxAmount;
-        }
 
-        for(int i = 0; i < amount; i++) {
-            Vector2 position = new Vector2(-(amount/2.0f) + i * 1.5f, 0.0f);
-            GameObject temp = Instantiate(eggPrefab, position, Quaternion.identity);
-            if(lastEgg) {
-                lastEgg.SetNextEgg(temp.GetComponent<Egg>());
+        for(int i = 0; i < amount; i++) 
+        {
+            Vector2 eggPos = Vector2.right * (-eggInterval * (amount - 1) / 2 + i * eggInterval);
+            Egg newEgg = Instantiate(eggPrefab, eggPos, Quaternion.identity) as Egg;
+            if (lastEgg) 
+            {
+                lastEgg.SetNextEgg(newEgg);
             }
-            else {
-                temp.GetComponent<Egg>().isActive = true;
-                if(word == "") {
+            else 
+            {
+                newEgg.isActive = true;
+                if(word == "")
                     word = DictionaryProcessor.GetWordOfLength(amount);
-                }
             }
-            lastEgg = temp.GetComponent<Egg>();
+            lastEgg = newEgg;
             KeyCode code = DictionaryProcessor.StringToKeyCode(word[wordIndex].ToString());
             lastEgg.SetKeyCode(code);
             wordIndex++;
