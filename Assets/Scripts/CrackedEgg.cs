@@ -19,6 +19,7 @@ public class CrackedEgg : MonoBehaviour
         child2 = transform.GetChild(1);
         sr1 = child1.gameObject.GetComponent<SpriteRenderer>();
         sr2 = child2.gameObject.GetComponent<SpriteRenderer>();
+        GetRandomTargets();
     }
 
     void GetRandomTargets() {
