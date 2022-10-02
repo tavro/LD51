@@ -16,6 +16,7 @@ public class Cow : MonoBehaviour
     float timePassed;
     bool isReady;
     Vector2 target;
+    Vector2 startPos;
 
     [SerializeField]
     GameObject spenePivot;
@@ -26,13 +27,14 @@ public class Cow : MonoBehaviour
     }
 
     void GetNewTargetPosition() {
-        float randomX = Random.Range(transform.position.x - offset, transform.position.x + offset);
-        float randomY = Random.Range(transform.position.y - offset, transform.position.y + offset);
+        float randomX = Random.Range(startPos.x - offset, startPos.x + offset);
+        float randomY = Random.Range(startPos.y - offset, startPos.y + offset);
         target = new Vector2(randomX, randomY);
     }
 
     void Start() {
         GetRandomStartPosition();
+        startPos = transform.position; 
         GetNewTargetPosition();
     }
     

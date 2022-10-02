@@ -381,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheepFarmPrefab: {fileID: 2111619048942642795, guid: 96ab88f9359e6544b9495dec01ca4caa, type: 3}
   cowFarmPrefab: {fileID: 8896995077805770300, guid: 35c3d30982771a748bdb56579a41a42f, type: 3}
-  farmPrefab: {fileID: 0}
+  farmPrefab: {fileID: 5053071997866824732, guid: cc56da12b27b5d8449e148a13486de00, type: 3}
 --- !u!1 &65389396
 GameObject:
   m_ObjectHideFlags: 0

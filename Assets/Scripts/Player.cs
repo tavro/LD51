@@ -77,7 +77,7 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerExit(GameObject obj)
     {
-        if (obj.tag == "Interactable")
+        if (!obj || obj.tag == "Interactable")
         {
             interactionTextUI.gameObject.SetActive(false);
         }
