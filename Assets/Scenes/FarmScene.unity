@@ -1877,12 +1877,12 @@ SpriteRenderer:
   m_SortingLayerID: -1694773567
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6b87da4ced3238749b28fa7c07769cd8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac2aa9329e8497445851a1f99cbe8a96, type: 3}
   m_Color: {r: 0.98465693, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -10444,6 +10444,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a4bea92670c8d43af84dbb2ee6408a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cowFarmPrefab: {fileID: 8896995077805770300, guid: 35c3d30982771a748bdb56579a41a42f, type: 3}
+  sheepFarmPrefab: {fileID: 2111619048942642795, guid: 96ab88f9359e6544b9495dec01ca4caa, type: 3}
+  farmFarmPrefab: {fileID: 5053071997866824732, guid: cc56da12b27b5d8449e148a13486de00, type: 3}
 --- !u!4 &2087048340
 Transform:
   m_ObjectHideFlags: 0

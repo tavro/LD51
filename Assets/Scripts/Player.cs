@@ -21,6 +21,7 @@ public class Player : MonoBehaviour, ITriggerListener
 
     private void Start()
     {
+        GameManager.Instance.PlaceBoughtBuildings();
         controller.SetTriggerListener(this);
     }
 
