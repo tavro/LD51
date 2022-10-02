@@ -12,11 +12,18 @@ public class Player : MonoBehaviour, ITriggerListener
     [SerializeField] private TextMeshProUGUI interactionTextUI;
 
     [SerializeField] private Animator animator;
-	private Controller2D controller;
+    private Controller2D controller;
+
+    private GameManager gm;
 
     private void Awake()
     {
         controller = GetComponent<Controller2D>();
+        gm = FindObjectOfType<GameManager>();
+        if (gm is not null)
+        {
+            gameObject.transform.position = gm.LastPlayerPos;
+        }
     }
 
     private void Start()
@@ -31,7 +38,7 @@ public class Player : MonoBehaviour, ITriggerListener
         {
             float horizontalMoveDir = Input.GetAxisRaw("Horizontal");
             float verticalMoveDir = Input.GetAxisRaw("Vertical");
-            
+
             if (horizontalMoveDir == 0 && verticalMoveDir != 0) // Moving horizontally only
             {
                 animator.SetFloat("horizontalDirection", 0);
@@ -51,7 +58,7 @@ public class Player : MonoBehaviour, ITriggerListener
             velocity = Vector2.right * horizontalMoveDir + Vector2.up * verticalMoveDir;
             velocity.Normalize();
             controller.Move(velocity * moveSpeed * Time.deltaTime);
-        
+
             animator.SetFloat("velocity", velocity.magnitude);
             animator.SetBool("isWalking", velocity != Vector2.zero);
         }
@@ -59,7 +66,7 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerEnter(GameObject obj)
     {
-        
+
     }
 
     public void TriggerStay(GameObject obj)
@@ -81,6 +88,14 @@ public class Player : MonoBehaviour, ITriggerListener
         if (!obj || obj.tag == "Interactable")
         {
             interactionTextUI.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (gm is not null)
+        {
+            gm.LastPlayerPos = gameObject.transform.position;
         }
     }
 }

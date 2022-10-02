@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public Inventory Inventory { private set; get; }
     public CoinManager CoinManager { private set; get; }
+    public Vector3 LastPlayerPos { set; get; }
 
     private void Awake()
     {
