@@ -339,3 +339,4 @@ MonoBehaviour:
   textMesh: {fileID: 6498358281250662809}
   nextEgg: {fileID: 0}
   isActive: 0
+  crackedEggPrefab: {fileID: 3592704345777140716, guid: cd445dc9ccea80b4cb34df3f3f3364e9, type: 3}
