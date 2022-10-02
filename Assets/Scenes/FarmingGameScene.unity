@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c780fd58e45224984678729be94a03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foxPrefab: {fileID: 6371819670694370439, guid: 39f0142e53958774f94b2eb84016e19a, type: 3}
+  foxPrefab: {fileID: 737289519067770845, guid: 39f0142e53958774f94b2eb84016e19a, type: 3}
   spawnTime: 3
 --- !u!1 &642227678
 GameObject:
