@@ -45,8 +45,10 @@ public class Egg : MonoBehaviour
         return activeKey;
     }
 
-    KeyCode lastKey;
-    bool hasLastKey;
+    //KeyCode lastKey;
+    //bool hasLastKey;
+    bool hasPressedKey, pressedRightKey;
+
     void Update()
     {
         if (!GameManager.Instance.IsPaused)
@@ -63,29 +65,26 @@ public class Egg : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-            else {
-                if(isActive) {
-                    if(hasLastKey && lastKey != activeKey) {
-                        RemoveEgg();
-                        Destroy(gameObject);
-                        Instantiate(crackedEggPrefab, transform.position, Quaternion.identity);
-                    }
-                    if(Input.GetKeyUp(activeKey)) {
+            else if(isActive) {
+                if (Input.anyKeyDown && !hasPressedKey)
+                {
+                    transform.position = offsetPos;
+                    pressedRightKey = Input.GetKeyDown(activeKey);
+                    hasPressedKey = true;
+                }
+                else if (!Input.anyKey && hasPressedKey)
+                {   
+                    if (pressedRightKey)
+                    {
                         AddToInventory();
-                        RemoveEgg();
                     }
-                    if(Input.anyKey) {
-                        if(transform.position.y != offsetPos.y) {
-                            transform.position = offsetPos;
-                        }
-                        foreach(KeyCode kcode in KeyCode.GetValues(typeof(KeyCode)))
-                        {
-                            if (Input.GetKey(kcode)) {
-                                lastKey = kcode;
-                                hasLastKey = true;
-                            }
-                        }
+                    else
+                    {
+                        Instantiate(crackedEggPrefab, transform.position, Quaternion.identity);
+                        sr.sprite = null;
+                        textMesh.SetText("");
                     }
+                    RemoveEgg();
                 }
             }
         }
