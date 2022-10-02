@@ -16,4 +16,8 @@ public class CoinManager
     {
         coinCount += item.price;
     }
+    public int GetCoinCount()
+    {
+        return coinCount;
+    }
 }

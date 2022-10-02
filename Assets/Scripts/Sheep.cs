@@ -8,8 +8,6 @@ public class Sheep : MonoBehaviour
     [SerializeField]
     GameObject woolPrefab;
     [SerializeField]
-    float offset;
-    [SerializeField]
     float speed;
     [SerializeField]
     float growTime;
@@ -17,24 +15,8 @@ public class Sheep : MonoBehaviour
     float timePassed;
     int growth;
     int maxGrowth = 10;
-    Vector2 target;
-    Vector2 startPos;
-
-    void GetRandomStartPosition() {
-        transform.position = new Vector2(Random.Range(-8.0f, 8.0f), Random.Range(-4.0f, 4.0f));
-    }
-
-    void GetNewTargetPosition() {
-        float randomX = Random.Range(startPos.x - offset, startPos.x + offset);
-        float randomY = Random.Range(startPos.y - offset, startPos.y + offset);
-        target = new Vector2(randomX, randomY);
-    }
 
     void Start() {
-        GetRandomStartPosition();
-        startPos = transform.position; 
-        GetNewTargetPosition();
-
         float amount = GameManager.Instance.DaysSinceInteraction;
         if(amount > 0) {
             for(int i = 0; i < 10; i++) {
@@ -44,7 +26,7 @@ public class Sheep : MonoBehaviour
     }
 
     void InstantiateWool() {
-        float woolOffset = 0.35f;
+        float woolOffset = 0.2f;
         Vector2 pos = new Vector2(transform.position.x + Random.Range(-woolOffset, woolOffset), transform.position.y + Random.Range(-woolOffset, woolOffset));
         GameObject temp = Instantiate(woolPrefab, pos, Quaternion.identity);
         temp.transform.parent = transform;
@@ -60,12 +42,6 @@ public class Sheep : MonoBehaviour
                     timePassed = 0.0f;
                     InstantiateWool();
                 }
-            }
-
-            float step = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target, step);
-            if(Vector2.Distance(transform.position, target) <= 0.01f) {
-                GetNewTargetPosition();
             }
         }
     }
