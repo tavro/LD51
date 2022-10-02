@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Crop : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class Crop : MonoBehaviour
 
                 if(mouse_pos.y >= 200.0f) {
                     GameManager.Instance.Inventory.cropAmount++;
+                    SceneManager.LoadScene("FarmScene");
                     Destroy(gameObject);
                 }
             }
