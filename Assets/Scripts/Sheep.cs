@@ -34,6 +34,21 @@ public class Sheep : MonoBehaviour
         GetRandomStartPosition();
         startPos = transform.position; 
         GetNewTargetPosition();
+
+        float amount = GameManager.Instance.DaysSinceInteraction;
+        if(amount > 0) {
+            for(int i = 0; i < 10; i++) {
+                InstantiateWool();
+            }
+        }
+    }
+
+    void InstantiateWool() {
+        float woolOffset = 0.35f;
+        Vector2 pos = new Vector2(transform.position.x + Random.Range(-woolOffset, woolOffset), transform.position.y + Random.Range(-woolOffset, woolOffset));
+        GameObject temp = Instantiate(woolPrefab, pos, Quaternion.identity);
+        temp.transform.parent = transform;
+        growth++;
     }
 
     void Update() {
@@ -43,11 +58,7 @@ public class Sheep : MonoBehaviour
                 timePassed += Time.deltaTime;
                 if(timePassed >= growTime) {
                     timePassed = 0.0f;
-                    float woolOffset = 0.35f;
-                    Vector2 pos = new Vector2(transform.position.x + Random.Range(-woolOffset, woolOffset), transform.position.y + Random.Range(-woolOffset, woolOffset));
-                    GameObject temp = Instantiate(woolPrefab, pos, Quaternion.identity);
-                    temp.transform.parent = transform;
-                    growth++;
+                    InstantiateWool();
                 }
             }
 
