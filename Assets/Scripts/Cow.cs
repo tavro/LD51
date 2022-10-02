@@ -13,6 +13,7 @@ public class Cow : MonoBehaviour
 
     float timePassed;
     bool isReady;
+    Coroutine speningSound;
 
     [SerializeField]
     GameObject spenePivot;
@@ -21,6 +22,7 @@ public class Cow : MonoBehaviour
     void ResetSpening() {
         isSpening = false;
         spenePivot.transform.localScale = new Vector2(1.0f, 1.0f);
+        StopCoroutine(speningSound);
     }
 
     void SetScale() {
@@ -98,6 +100,7 @@ public class Cow : MonoBehaviour
                 temp = Instantiate(targetPrefab, pos, Quaternion.identity);
                 temp.GetComponent<Target>().targetCow = this;
                 isSpening = true;
+                speningSound = StartCoroutine(MakeSound.SoundPlayer("Milk", 1f, 1f, GameManager.Instance));
             }
         }
     }
