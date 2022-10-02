@@ -24,6 +24,9 @@ public class Egg : MonoBehaviour
 
     SpriteRenderer sr;
 
+    [SerializeField]
+    GameObject crackedEggPrefab;
+
     void Start() {
         offsetPos = new Vector2(transform.position.x, transform.position.y - 0.15f);
         sr = GetComponent<SpriteRenderer>();
@@ -42,6 +45,8 @@ public class Egg : MonoBehaviour
         return activeKey;
     }
 
+    KeyCode lastKey;
+    bool hasLastKey;
     void Update()
     {
         if (!GameManager.Instance.IsPaused)
@@ -60,6 +65,11 @@ public class Egg : MonoBehaviour
             }
             else {
                 if(isActive) {
+                    if(hasLastKey && lastKey != activeKey) {
+                        RemoveEgg();
+                        Destroy(gameObject);
+                        Instantiate(crackedEggPrefab, transform.position, Quaternion.identity);
+                    }
                     if(Input.GetKeyUp(activeKey)) {
                         AddToInventory();
                         RemoveEgg();
@@ -67,6 +77,13 @@ public class Egg : MonoBehaviour
                     if(Input.anyKey) {
                         if(transform.position.y != offsetPos.y) {
                             transform.position = offsetPos;
+                        }
+                        foreach(KeyCode kcode in KeyCode.GetValues(typeof(KeyCode)))
+                        {
+                            if (Input.GetKey(kcode)) {
+                                lastKey = kcode;
+                                hasLastKey = true;
+                            }
                         }
                     }
                 }
