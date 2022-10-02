@@ -77,12 +77,14 @@ public class Egg : MonoBehaviour
                     if (pressedRightKey)
                     {
                         AddToInventory();
+                        FindObjectOfType<AudioManager>().PlaySound("Plop");
                     }
                     else
                     {
                         Instantiate(crackedEggPrefab, transform.position, Quaternion.identity);
                         sr.sprite = null;
                         textMesh.SetText("");
+                        FindObjectOfType<AudioManager>().PlaySound("Crack");
                     }
                     RemoveEgg();
                 }
