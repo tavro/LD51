@@ -8112,6 +8112,7 @@ MonoBehaviour:
   decorations:
   - {fileID: 5415657523608083147, guid: 294f988fba0724c4faa5d85b30f73d7b, type: 3}
   - {fileID: 35317445793390906, guid: 542322a4e48658b499794199a9a61f28, type: 3}
+  - {fileID: 2034064138712343829, guid: 036eabda86b31744fb591d01e42285f5, type: 3}
   animations:
   - {fileID: 9100000, guid: 57ae1f7017ce18f43845ca7e265bf8ad, type: 2}
   - {fileID: 9100000, guid: 5cf3c674ad95aa046b191cd6abccd946, type: 2}
