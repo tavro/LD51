@@ -8135,7 +8135,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8326,6 +8326,7 @@ GameObject:
   - component: {fileID: 1659418835}
   - component: {fileID: 1659418839}
   - component: {fileID: 1659418838}
+  - component: {fileID: 1659418840}
   m_Layer: 0
   m_Name: sheep
   m_TagString: Untagged
@@ -8450,9 +8451,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   woolPrefab: {fileID: 3100214467479649021, guid: affe453b3d8c831418619507e616f7ec, type: 3}
-  offset: 2
   speed: 0.5
   growTime: 2
+--- !u!114 &1659418840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659418834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1d5c97c32f06f4eb681939ee528f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 2
+  speed: 0.5
+  minPos: {x: -3.25, y: -0.9}
+  maxPos: {x: 3.25, y: 0.9}
 --- !u!1 &2133617985
 GameObject:
   m_ObjectHideFlags: 0
