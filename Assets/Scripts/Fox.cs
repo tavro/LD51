@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class Fox : MonoBehaviour
 {
     [SerializeField] private float approachSpeed, fleeSpeed;
-    [SerializeField] private GameObject dustEffectPrefab;
+    [SerializeField] private Particle dustEffectPrefab;
 
     private GameObject target;
     private Vector2 startPos;
     private bool isApproaching;
 
-    private Vector2 swipeStartPos;
+    private Vector2 swipeStartPos, swipePrevPos;
 
     private new BoxCollider2D collider;
 
@@ -42,8 +42,6 @@ public class Fox : MonoBehaviour
                     SceneManager.LoadScene("FarmScene");
                 }
 
-                // Get mouse start pos
-                // If mouse over AND distance from mouse travel dist long enough, make fox flee
                 if (Input.GetMouseButtonDown(0))
                 {
                     swipeStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -54,8 +52,11 @@ public class Fox : MonoBehaviour
                     if (Vector2.Distance(swipeStartPos, swipeCurrPos) > 0.3f  && collider.OverlapPoint(swipeCurrPos))
                     {
                         isApproaching = false;
-                        Instantiate(dustEffectPrefab, transform.position, Quaternion.identity);
+                        Particle dustParticle = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity);
+                        dustParticle.SetAngle(Vector2.SignedAngle(Vector2.right, swipeCurrPos - swipePrevPos));
+                        Debug.Log(Vector2.SignedAngle(Vector2.right, swipeCurrPos - swipePrevPos));
                     }
+                    swipePrevPos = swipeCurrPos;
                 }
             }
             else
