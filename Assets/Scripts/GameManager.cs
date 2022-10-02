@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private float dayTimer;
     public int Day { private set; get; }
     
-    private Dictionary<string, Vector2> boughtBuildings;
+    private Dictionary<string, Vector2> boughtBuildings = new Dictionary<string, Vector2>();
     private Dictionary<string, int> buildingInteractionDays;  
     public int DaysSinceInteraction { private set; get; }
 
@@ -42,7 +42,6 @@ public class GameManager : MonoBehaviour
         notifications = new List<Notification>();
         Day = 1;
         buildingInteractionDays = new Dictionary<string, int>();
-        PlaceBoughtBuildings();
     }
 
     public void AddBuilding(string name, Vector2 position) {
