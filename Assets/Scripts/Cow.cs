@@ -7,42 +7,41 @@ public class Cow : MonoBehaviour
     [SerializeField]
     GameObject targetPrefab;
     [SerializeField]
-    float offset;
-    [SerializeField]
-    float speed;
-    [SerializeField]
     float timeout;
     [SerializeField]
     private Vector2 minPos, maxPos;
 
     float timePassed;
     bool isReady;
-    Vector2 target;
-    Vector2 startPos;
 
     [SerializeField]
     GameObject spenePivot;
     bool isSpening;
 
-    void GetRandomStartPosition() {
-        transform.position = new Vector2(Random.Range(minPos.x, maxPos.x), Random.Range(minPos.y, maxPos.y));
-    }
-
-    void GetNewTargetPosition() {
-        float randomX = Random.Range(startPos.x - offset, startPos.x + offset);
-        float randomY = Random.Range(startPos.y - offset, startPos.y + offset);
-        target = new Vector2(randomX, randomY);
-    }
-
-    void Start() {
-        GetRandomStartPosition();
-        startPos = transform.position; 
-        GetNewTargetPosition();
-    }
-    
     void ResetSpening() {
         isSpening = false;
         spenePivot.transform.localScale = new Vector2(1.0f, 1.0f);
+    }
+
+    void SetScale() {
+        if(isReady) {
+            SetMilkReadyScale();
+        }
+        else {
+            SetOriginScale();
+        }
+    }
+
+    void SetOriginScale() {
+        if(transform.localScale.x != 1.0f) {
+            transform.localScale = new Vector2(1.0f, 1.0f);
+        }
+    }
+
+    void SetMilkReadyScale() {
+        if(transform.localScale.x != 1.25f) {
+            transform.localScale = new Vector2(1.25f, 1.25f);
+        }
     }
 
     GameObject temp;
@@ -69,6 +68,8 @@ public class Cow : MonoBehaviour
                 }
             }
 
+            SetScale();
+
             if(isSpening) {
                 Vector2 mouse_pos = Input.mousePosition;
                 Vector2 object_pos = Camera.main.WorldToScreenPoint(spenePivot.transform.position);
@@ -80,12 +81,6 @@ public class Cow : MonoBehaviour
                 Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float distance = Vector2.Distance(spenePivot.transform.position, currentMousePos);
                 spenePivot.transform.localScale = new Vector2(1.0f, distance*10.0f);
-            }
-
-            float step = speed * Time.deltaTime;
-            transform.position = Vector2.MoveTowards(transform.position, target, step);
-            if(Vector2.Distance(transform.position, target) <= 0.01f) {
-                GetNewTargetPosition();
             }
         }
     }
@@ -99,17 +94,11 @@ public class Cow : MonoBehaviour
     void OnMouseOver() {
         if(!GameManager.Instance.IsPaused && isReady) {
             if(Input.GetMouseButtonDown(0)) {
-                Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y - 1.0f);
+                Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y - 0.25f);
                 temp = Instantiate(targetPrefab, pos, Quaternion.identity);
                 temp.GetComponent<Target>().targetCow = this;
                 isSpening = true;
             }
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((maxPos + minPos) / 2, maxPos - minPos + Vector2.one * 2);
     }
 }
