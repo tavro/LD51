@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     private float dayTimer;
     public int Day { private set; get; }
     
+    private Dictionary<string, Vector2> boughtBuildings;
     private Dictionary<string, int> buildingInteractionDays;  
     public int DaysSinceInteraction { private set; get; }
 
@@ -40,7 +41,31 @@ public class GameManager : MonoBehaviour
         Inventory = new Inventory();
         notifications = new List<Notification>();
         Day = 1;
+        boughtBuildings = new Dictionary<string, Vector2>();
         buildingInteractionDays = new Dictionary<string, int>();
+    }
+
+    public void AddBuilding(string name, Vector2 position) {
+        boughtBuildings[name] = position;
+    }
+
+    [SerializeField] private GameObject cowFarmPrefab;
+    [SerializeField] private GameObject sheepFarmPrefab;
+    [SerializeField] private GameObject farmFarmPrefab;
+    public void PlaceBoughtBuildings() {
+        foreach(var item in boughtBuildings) {
+            switch(item.Key) {
+                case "CowFarm":
+                    Instantiate(cowFarmPrefab, item.Value, Quaternion.identity);
+                    break;
+                case "SheepFarm":
+                    Instantiate(sheepFarmPrefab, item.Value, Quaternion.identity);
+                    break;
+                case "FarmFarm":
+                    Instantiate(farmFarmPrefab, item.Value, Quaternion.identity);
+                    break;
+            }
+        }
     }
 
     private void Update()
