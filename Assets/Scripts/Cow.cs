@@ -12,6 +12,8 @@ public class Cow : MonoBehaviour
     float speed;
     [SerializeField]
     float timeout;
+    [SerializeField]
+    private Vector2 minPos, maxPos;
 
     float timePassed;
     bool isReady;
@@ -23,7 +25,7 @@ public class Cow : MonoBehaviour
     bool isSpening;
 
     void GetRandomStartPosition() {
-        transform.position = new Vector2(Random.Range(-8.0f, 8.0f), Random.Range(-4.0f, 4.0f));
+        transform.position = new Vector2(Random.Range(minPos.x, maxPos.x), Random.Range(minPos.y, maxPos.y));
     }
 
     void GetNewTargetPosition() {
@@ -103,5 +105,11 @@ public class Cow : MonoBehaviour
                 isSpening = true;
             }
         }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube((maxPos + minPos) / 2, maxPos - minPos + Vector2.one * 2);
     }
 }
