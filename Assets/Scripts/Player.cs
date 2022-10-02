@@ -59,20 +59,20 @@ public class Player : MonoBehaviour, ITriggerListener
 
     public void TriggerEnter(GameObject obj)
     {
-        if (obj.tag == "Interactable")
-        {
-            IInteractable interactable = obj.GetComponent<IInteractable>();
-            interactionTextUI.gameObject.SetActive(true);
-            interactionTextUI.SetText($"E - {interactable.GetInteractionDesc()}"); // TODO: Get interaction description instead.
-        }
+        
     }
 
     public void TriggerStay(GameObject obj)
     {
-        if (obj.tag == "Interactable" && Input.GetButtonDown("Interact"))
+        if (obj.tag == "Interactable")
         {
             IInteractable interactable = obj.GetComponent<IInteractable>();
-            interactable.OnInteraction();
+
+            if (Input.GetButtonDown("Interact"))
+                interactable.OnInteraction();
+
+            interactionTextUI.gameObject.SetActive(true);
+            interactionTextUI.SetText($"E - {interactable.GetInteractionDesc()}"); // TODO: Get interaction description instead.
         }
     }
 

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
+  m_Name: Letter 3
+  m_EditorClassIdentifier: 
+  day: 166
+  subject: Second reminder of loan repayment
+  body: 'Hello for the third time dear customer,
+
+
+    We at the Bank of Unreliable
+    Accountants are starting to get impatient at your lack of repayment regarding
+    your loan. We are not money hungry, but we would very much like to get back the
+    money that you borrowed from us, with our customary 900% interest rate. We hope
+    that you will be able to repay us soon. The deadline is in 100 days.
+
+
+    As
+    mentioned before, we accept no excuses. Not even from you, special snowflake.
+    Please have a good day.
+
+
+    Regards,
+
+    Mon Eh Hungry, CEO of the Bank of
+    Unreliable Accountants.'
