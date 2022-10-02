@@ -29,14 +29,17 @@ public class BuildHandler : MonoBehaviour
     void Update() {
         if(Input.GetKeyDown(KeyCode.S)) {
             Instantiate(sheepFarmPrefab, buildSlot.transform.position, Quaternion.identity);
+            GameManager.Instance.AddBuilding("SheepFarm", buildSlot.transform.position);
             DestroyBuildSlot();
         }
         else if(Input.GetKeyDown(KeyCode.C)) {
             Instantiate(cowFarmPrefab, buildSlot.transform.position, Quaternion.identity);
+            GameManager.Instance.AddBuilding("CowFarm", buildSlot.transform.position);
             DestroyBuildSlot();
         }
         else if(Input.GetKeyDown(KeyCode.F)) {
             Instantiate(farmPrefab, buildSlot.transform.position, Quaternion.identity);
+            GameManager.Instance.AddBuilding("FarmFarm", buildSlot.transform.position);
             DestroyBuildSlot();
         }
     }
