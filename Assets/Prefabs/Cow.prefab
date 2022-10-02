@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5498974035635245120}
   - component: {fileID: 5498974035635245123}
   - component: {fileID: 5498974035635245116}
+  - component: {fileID: 1764572368}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Untagged
@@ -121,8 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPrefab: {fileID: 1756247871066788812, guid: daa4f576ab2f0e84d88bfee6c147ffff, type: 3}
-  offset: 2
-  speed: 0.5
   timeout: 2
   minPos: {x: -5.6, y: -2.5}
   maxPos: {x: 5.6, y: 2.5}
@@ -151,8 +150,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.25}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1764572368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5498974035635245127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1d5c97c32f06f4eb681939ee528f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 2
+  speed: 0.5
+  minPos: {x: -3.3, y: -0.9}
+  maxPos: {x: 3.3, y: 0.9}
 --- !u!1 &5498974036300652496
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5498974036300652496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.15, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
