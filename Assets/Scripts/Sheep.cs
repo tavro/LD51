@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Sheep : MonoBehaviour
 {
@@ -69,6 +70,9 @@ public class Sheep : MonoBehaviour
             while(child.gameObject.name == "sprite-sheep-body");
             child.parent = null;
             growth--;
+            if(growth == 0) {
+                SceneManager.LoadScene("FarmScene");
+            }
         }
     }
 }
