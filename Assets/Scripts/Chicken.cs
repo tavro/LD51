@@ -44,6 +44,6 @@ public class Chicken : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((maxPos + minPos) / 2, maxPos - minPos);
+        Gizmos.DrawWireCube((maxPos + minPos) / 2, maxPos - minPos + Vector2.one * 2);
     }
 }
