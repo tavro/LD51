@@ -6,9 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/TitleScreenScene.unity
+    guid: 7f1cd7dbd578cd540b59fc9f755e593a
+  - enabled: 1
+    path: Assets/Scenes/FarmScene.unity
+    guid: 78a9f1719b37b894aa6e519c421b0e28
   - enabled: 1
     path: Assets/Scenes/EggScene.unity
     guid: c1fe3b5ce9f193745bc75df5deaf483d
+  - enabled: 1
+    path: Assets/Scenes/SheepScene.unity
+    guid: 6d78a12e7977e644a9b129499715a7e7
+  - enabled: 1
+    path: Assets/Scenes/FarmingGameScene.unity
+    guid: 7ba5261ac73aeab4698d4607096be51c
+  - enabled: 1
+    path: Assets/Scenes/CowScene.unity
+    guid: a537207bf127eba4ab5f27fc262c0bc8
   m_configObjects: {}

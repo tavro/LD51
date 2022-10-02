@@ -59,8 +59,8 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1691572605
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6498358281168830399
 MonoBehaviour:
@@ -269,7 +269,7 @@ Transform:
   m_Children:
   - {fileID: 6498358281168830397}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6498358281319126552
 SpriteRenderer:
@@ -309,8 +309,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1691572605
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8e0d623d7ad669f4aac943df23889a57, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aff8796ddcf85b4c8afbc84a359f526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCodes: 77000000610000007300000064000000
+  keyCodes: 6100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a000000
   textMesh: {fileID: 6498358281250662809}
   nextEgg: {fileID: 0}
   isActive: 0
