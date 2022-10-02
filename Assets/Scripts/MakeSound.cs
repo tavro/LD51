@@ -13,14 +13,18 @@ public class MakeSound : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(SoundPlayer(soundName, minWait, maxWait));
+        var gm = FindObjectOfType<GameManager>();
+        StartCoroutine(SoundPlayer(soundName, minWait, maxWait, gm));
     }
 
-    IEnumerator SoundPlayer(string name, float minWait, float maxWait)
+    public static IEnumerator SoundPlayer(string name, float minWait, float maxWait, GameManager gm)
     {
         for (; ; )
         {
-            FindObjectOfType<AudioManager>().PlaySound(name);
+            if(!gm.IsPaused)
+            {
+                FindObjectOfType<AudioManager>().PlaySound(name);
+            }
             yield return new WaitForSeconds(Random.Range(minWait, maxWait));
         }
     }
