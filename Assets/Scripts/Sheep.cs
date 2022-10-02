@@ -56,6 +56,7 @@ public class Sheep : MonoBehaviour
             }
             while(child.gameObject.name == "sprite-sheep-body");
             child.parent = null;
+            FindObjectOfType<AudioManager>().PlaySound("Cut");
             growth--;
             if(growth == 0) {
                 SceneManager.LoadScene("FarmScene");
