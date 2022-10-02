@@ -22,6 +22,8 @@ public class BuildHandler : MonoBehaviour
     }
 
     void DestroyBuildSlot() {
+        string postfix = (int)buildSlot.transform.position.x + ":" + (int)buildSlot.transform.position.y;
+        GameManager.Instance.RemoveBuilding("BuildSlot" + postfix);
         Destroy(buildSlot.gameObject);
         CloseUI();
     }

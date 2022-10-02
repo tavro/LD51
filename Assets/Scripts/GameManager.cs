@@ -43,15 +43,24 @@ public class GameManager : MonoBehaviour
         Day = 1;
         boughtBuildings = new Dictionary<string, Vector2>();
         buildingInteractionDays = new Dictionary<string, int>();
+
+        boughtBuildings["BuildSlot0:-4"] = new Vector2(0.0f, -4.0f);
+        boughtBuildings["BuildSlot8:4"] = new Vector2(8.0f, 4.0f);
+        boughtBuildings["BuildSlot-8:-4"] = new Vector2(-8.0f, -4.0f);
     }
 
     public void AddBuilding(string name, Vector2 position) {
         boughtBuildings[name] = position;
     }
 
+    public void RemoveBuilding(string key) {
+        boughtBuildings.Remove(key);
+    }
+
     [SerializeField] private GameObject cowFarmPrefab;
     [SerializeField] private GameObject sheepFarmPrefab;
     [SerializeField] private GameObject farmFarmPrefab;
+    [SerializeField] private GameObject buildSlotPrefab;
     public void PlaceBoughtBuildings() {
         foreach(var item in boughtBuildings) {
             switch(item.Key) {
@@ -63,6 +72,11 @@ public class GameManager : MonoBehaviour
                     break;
                 case "FarmFarm":
                     Instantiate(farmFarmPrefab, item.Value, Quaternion.identity);
+                    break;
+                default:
+                    if(item.Key.Contains("BuildSlot")) {
+                        Instantiate(buildSlotPrefab, item.Value, Quaternion.identity);
+                    }
                     break;
             }
         }
