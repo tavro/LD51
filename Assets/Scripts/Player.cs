@@ -72,7 +72,7 @@ public class Player : MonoBehaviour, ITriggerListener
                 interactable.OnInteraction();
 
             interactionTextUI.gameObject.SetActive(true);
-            interactionTextUI.SetText($"E - {interactable.GetInteractionDesc()}"); // TODO: Get interaction description instead.
+            interactionTextUI.SetText($"E - {interactable.GetInteractionDesc()}");
         }
     }
 
