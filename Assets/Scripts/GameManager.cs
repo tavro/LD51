@@ -13,7 +13,11 @@ public class GameManager : MonoBehaviour
         get
         {
             if (_instance == null)
+            {
                 _instance = (GameManager)FindObjectOfType(typeof(GameManager));
+                if (_instance == null) // AKA if non-existant
+                    _instance = new GameObject("Game Manager").AddComponent<GameManager>();
+            }
             return _instance;
         }
     }
