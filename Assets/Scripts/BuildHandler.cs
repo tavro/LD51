@@ -83,7 +83,7 @@ public class BuildHandler : MonoBehaviour
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
             Buyable buyable = new Buyable(null, 25, "CowFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Vector2 pos = new Vector2(buildSlot.transform.position.x, buildSlot.transform.position.y - GetBuildOffset());
+                Vector2 pos = new Vector2(buildSlot.transform.position.x, buildSlot.transform.position.y + GetBuildOffset());
                 Build(cowFarmPrefab, pos, buyable.name);
             }
         }
