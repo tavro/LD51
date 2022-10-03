@@ -22,10 +22,17 @@ public class BuildHandler : MonoBehaviour
     [SerializeField] GameObject farmUI;
 
     void Start() {
+        SetCanBuyBools();
+        SetUIDisplays();
+    }
+
+    void SetCanBuyBools() {
         canBuySheepFarm = !CheckIfBuilt("SheepFarm");
         canBuyCowFarm = !CheckIfBuilt("CowFarm");
         canBuyFarmFarm = !CheckIfBuilt("FarmFarm");
+    }
 
+    void SetUIDisplays() {
         sheepUI.SetActive(canBuySheepFarm);
         cowUI.SetActive(canBuyCowFarm);
         farmUI.SetActive(canBuyFarmFarm);
@@ -50,33 +57,40 @@ public class BuildHandler : MonoBehaviour
         CloseUI();
     }
 
-    void Build(GameObject prefab, GameObject uiObject, string name) {
-        Instantiate(prefab, buildSlot.transform.position, Quaternion.identity);
-        GameManager.Instance.AddBuilding(name, buildSlot.transform.position);
-        uiObject.SetActive(false);
+    void Build(GameObject prefab, Vector2 position, string name) {
+        Instantiate(prefab, position, Quaternion.identity);
+        GameManager.Instance.AddBuilding(name, position);
+        SetCanBuyBools();
+        SetUIDisplays();
         DestroyBuildSlot();
+    }
+
+    float GetBuildOffset() {
+        float offset = 1.0f;
+        if(buildSlot.transform.position.y > 0.0f)
+            offset *= -1;
+        return offset;
     }
 
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
             Buyable buyable = new Buyable(null, 25, "SheepFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Build(sheepFarmPrefab, sheepUI.gameObject, buyable.name);
-                canBuySheepFarm = false;
+                Vector2 pos = new Vector2(buildSlot.transform.position.x, buildSlot.transform.position.y + GetBuildOffset());
+                Build(sheepFarmPrefab, pos, buyable.name);
             }
         }
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
             Buyable buyable = new Buyable(null, 25, "CowFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Build(cowFarmPrefab, cowUI.gameObject, buyable.name);
-                canBuyCowFarm = false;
+                Vector2 pos = new Vector2(buildSlot.transform.position.x, buildSlot.transform.position.y - GetBuildOffset());
+                Build(cowFarmPrefab, pos, buyable.name);
             }
         }
         else if(canBuyFarmFarm && Input.GetKeyDown(KeyCode.F)) {
             Buyable buyable = new Buyable(null, 25, "FarmFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Build(farmPrefab, farmUI.gameObject, buyable.name);
-                canBuyFarmFarm = false;
+                Build(farmPrefab, buildSlot.transform.position, buyable.name);
             }
         }
     }
