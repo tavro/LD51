@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Milk : MonoBehaviour
 {
     void OnMouseOver() {
-        if(Input.GetMouseButtonDown(0)) {
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE && Input.GetMouseButtonDown(0)) {
             SceneManager.LoadScene("FarmScene");
         }
     }
