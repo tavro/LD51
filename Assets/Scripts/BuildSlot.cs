@@ -26,16 +26,19 @@ public class BuildSlot : MonoBehaviour, IInteractable
     }
 
     public void OnInteraction() {
-        if (buildHandler.gameObject.activeSelf)
+        if (GameManager.Instance.CurrPauseState != GameManager.PauseState.FULL)
         {
-            buildHandler.gameObject.SetActive(false);
-            GameManager.Instance.SetPauseState(GameManager.PauseState.NONE);
-        }
-        else
-        {
-            buildHandler.gameObject.SetActive(true);
-            buildHandler.SetBuildSlot(this);
-            GameManager.Instance.SetPauseState(GameManager.PauseState.MENU);
+            if (buildHandler.gameObject.activeSelf)
+            {
+                buildHandler.gameObject.SetActive(false);
+                GameManager.Instance.SetPauseState(GameManager.PauseState.NONE);
+            }
+            else
+            {
+                buildHandler.gameObject.SetActive(true);
+                buildHandler.SetBuildSlot(this);
+                GameManager.Instance.SetPauseState(GameManager.PauseState.MENU);
+            }
         }
     }
 
