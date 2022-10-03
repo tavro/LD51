@@ -5,25 +5,33 @@ using UnityEngine.SceneManagement;
 
 public class Crop : MonoBehaviour
 {
+    [SerializeField] private float pullAngleMargin = 45.0f;
+    [SerializeField] private float pullDistance = 1.0f;
+
     bool isFollowingMouse;
 
     void Update()
     {
         if (!GameManager.Instance.IsPaused)
         {
-            if(isFollowingMouse) {
-                Vector2 mouse_pos = Input.mousePosition;
-                Vector2 object_pos = Camera.main.WorldToScreenPoint(transform.position);
-                mouse_pos.x = mouse_pos.x - object_pos.x;
-                mouse_pos.y = mouse_pos.y - object_pos.y;
-                float angle = Mathf.Atan2(mouse_pos.y, mouse_pos.x) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90.0f));
+            if (isFollowingMouse) 
+            {
+                Vector2 mousePosGlobal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 mousePosRelative = mousePosGlobal - (Vector2)transform.position;
+                float pullAngle = Vector2.SignedAngle(Vector2.up, mousePosRelative);
+                transform.rotation = Quaternion.Euler(0, 0, pullAngle); // TODO: clamp to margins 
+                // TODO: pull out further from the ground the higher up you pull (pullRaise or smth)
+                // TODO: stick back in if outside of margins (pullRaiseAngleMargins or smth)
 
-                if(mouse_pos.y >= 200.0f) {
-                    GameManager.Instance.Inventory.cropAmount++;
-                    SceneManager.LoadScene("FarmScene");
-                    Destroy(gameObject);
+                if (Mathf.Abs(pullAngle) <= pullAngleMargin && mousePosRelative.magnitude >= pullDistance)
+                {
+                    GameManager.Instance.Inventory.cropAmount++; // TODO: make differ if days past is greater (maybe via more crops)
+                    SceneManager.LoadScene("FarmScene"); // TODO: take care of in a CropHandler instead
+                    Destroy(gameObject); // TODO: maybe just make invisible and marked as pulled instead
                 }
+
+                if (Input.GetMouseButtonUp(0))
+                    isFollowingMouse = false;
             }
         }
     }
@@ -31,12 +39,8 @@ public class Crop : MonoBehaviour
     void OnMouseOver() {
         if (!GameManager.Instance.IsPaused)
         {
-            if(Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0))
                 isFollowingMouse = true;
-            }
-            else if(Input.GetMouseButtonUp(0)) {
-                isFollowingMouse = false;
-            }
         }
     }
 }
