@@ -76,7 +76,10 @@ public class Crop : MonoBehaviour
             {
                 isFollowingMouse = true;
             }
-            Cursor.SetCursor(handyDandy, handyHotSpot, cursorMode);
+            if(!IsPulled)
+            {
+                Cursor.SetCursor(handyDandy, handyHotSpot, cursorMode);
+            }
         }
     }
     private void OnMouseExit()
