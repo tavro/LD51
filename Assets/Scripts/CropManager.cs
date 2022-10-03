@@ -40,7 +40,12 @@ public class CropManager : MonoBehaviour
             }
 
             if (cropsAreGone)
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 SceneManager.LoadScene("FarmScene");
+            }
+                
+
         }
     }
 

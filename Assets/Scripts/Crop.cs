@@ -11,28 +11,37 @@ public class Crop : MonoBehaviour
     [SerializeField] private new SpriteRenderer renderer;
     [SerializeField] private float visualPullDist = 0.1f;
     private Vector2 visualOrigPos;
+    [SerializeField] Texture2D handyDandy;
+    [SerializeField] Texture2D broomBroom;
+
+    CursorMode cursorMode = CursorMode.ForceSoftware;
+    Vector2 handyHotSpot = Vector2.zero;
+    Vector2 broomHotSpot = Vector2.zero;
 
     bool isFollowingMouse;
-    
+
+
     public bool IsPulled { get; private set; }
     public bool IsGone { get; private set; }
 
     private void Start()
     {
         visualOrigPos = renderer.transform.position;
+        handyHotSpot = new Vector2(handyDandy.width / 2, 0);
+        broomHotSpot = new Vector2(broomBroom.width / 2, 0);
     }
 
     void Update()
     {
         if (!GameManager.Instance.IsPaused)
         {
-            if (isFollowingMouse && !IsPulled) 
+            if (isFollowingMouse && !IsPulled)
             {
                 Vector2 mousePosGlobal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mousePosRelative = mousePosGlobal - (Vector2)transform.position;
 
                 float pullAngle = Vector2.SignedAngle(Vector2.up, mousePosRelative);
-                renderer.transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(pullAngle, -pullAngleMargin, pullAngleMargin)); 
+                renderer.transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(pullAngle, -pullAngleMargin, pullAngleMargin));
 
                 float pullDist = mousePosRelative.magnitude;
                 renderer.transform.position = Vector2.Lerp(visualOrigPos, visualOrigPos + (Vector2)renderer.transform.up * visualPullDist, pullDist / distToPullOut);
@@ -44,7 +53,11 @@ public class Crop : MonoBehaviour
                 }
 
                 if (Input.GetMouseButtonUp(0))
+                {
+                    Cursor.SetCursor(broomBroom, broomHotSpot, cursorMode);
                     isFollowingMouse = false;
+                }
+                    
             }
 
             if (IsPulled)
@@ -55,16 +68,36 @@ public class Crop : MonoBehaviour
         }
     }
 
-    void OnMouseOver() {
+    void OnMouseOver()
+    {
         if (!GameManager.Instance.IsPaused)
         {
             if (Input.GetMouseButtonDown(0))
+            {
                 isFollowingMouse = true;
+
+            }
+            Cursor.SetCursor(handyDandy, handyHotSpot, cursorMode);
         }
     }
+    private void OnMouseExit()
+    {
+        if (!isFollowingMouse)
+        {
+            Cursor.SetCursor(broomBroom, broomHotSpot, cursorMode);
+        }
+    }
+
+
 
     public void PullOut()
     {
         IsPulled = true;
+        Cursor.SetCursor(broomBroom, broomHotSpot, cursorMode);
     }
 }
+
+
+
+
+

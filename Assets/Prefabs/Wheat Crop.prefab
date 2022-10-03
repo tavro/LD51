@@ -66,6 +66,8 @@ MonoBehaviour:
   distToPullOut: 2.5
   renderer: {fileID: 6143313717909723478}
   visualPullDist: 0.1
+  handyDandy: {fileID: 2800000, guid: 19315131cf57ebb4fb1fdddcdbfed3df, type: 3}
+  broomBroom: {fileID: 2800000, guid: a0691828979df2c43b232df316db24f6, type: 3}
 --- !u!1 &6143313717909723472
 GameObject:
   m_ObjectHideFlags: 0
