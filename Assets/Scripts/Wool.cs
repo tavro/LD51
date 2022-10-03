@@ -6,8 +6,11 @@ public class Wool : MonoBehaviour
 {
     SpriteRenderer sr;
 
+    [SerializeField] List<Sprite> sprites = new List<Sprite>();
+
     void Start() {
         sr = GetComponent<SpriteRenderer>();
+        sr.sprite = sprites[Random.Range(0, sprites.Count)];
     }
 
     void Update() {
