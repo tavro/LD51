@@ -38,7 +38,10 @@ public class BuildHandler : MonoBehaviour
 
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
-            if(GameManager.Instance.CoinManager.Buy()) {
+            Buyable buyable;
+            buyable.price = 0;
+            buyable.name = "Sheep Farm";
+            if(GameManager.Instance.CoinManager.Buy(buyable)) {
                 Instantiate(sheepFarmPrefab, buildSlot.transform.position, Quaternion.identity);
                 GameManager.Instance.AddBuilding("SheepFarm", buildSlot.transform.position);
                 DestroyBuildSlot();
