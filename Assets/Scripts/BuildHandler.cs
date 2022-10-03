@@ -36,9 +36,10 @@ public class BuildHandler : MonoBehaviour
     [SerializeField] GameObject cowUI;
     [SerializeField] GameObject farmUI;
 
-    void Build(GameObject prefab, string name) {
+    void Build(GameObject prefab, GameObject uiObject, string name) {
         Instantiate(prefab, buildSlot.transform.position, Quaternion.identity);
         GameManager.Instance.AddBuilding(name, buildSlot.transform.position);
+        uiObject.SetActive(false);
         DestroyBuildSlot();
     }
 
@@ -46,25 +47,22 @@ public class BuildHandler : MonoBehaviour
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
             Buyable buyable = new Buyable(null, 0, "SheepFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Build(sheepFarmPrefab, buyable.name);
+                Build(sheepFarmPrefab, sheepUI.gameObject, buyable.name);
                 canBuySheepFarm = false;
-                sheepUI.gameObject.SetActive(false);
             }
         }
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
             Buyable buyable = new Buyable(null, 0, "CowFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Build(cowFarmPrefab, buyable.name);
+                Build(cowFarmPrefab, cowUI.gameObject, buyable.name);
                 canBuyCowFarm = false;
-                cowUI.gameObject.SetActive(false);
             }
         }
         else if(canBuyFarmFarm && Input.GetKeyDown(KeyCode.F)) {
             Buyable buyable = new Buyable(null, 0, "FarmFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Build(farmPrefab, buyable.name);
+                Build(farmPrefab, farmUI.gameObject, buyable.name);
                 canBuyFarmFarm = false;
-                farmUI.gameObject.SetActive(false);
             }
         }
     }

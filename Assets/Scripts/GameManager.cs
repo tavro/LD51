@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         Inventory = new Inventory();
+        CoinManager = new CoinManager();
         notifications = new List<Notification>();
         Day = 1;
         buildingInteractionDays = new Dictionary<string, int>();
