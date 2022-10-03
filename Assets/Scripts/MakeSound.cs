@@ -21,7 +21,7 @@ public class MakeSound : MonoBehaviour
     {
         for (; ; )
         {
-            if(!gm.IsPaused)
+            if(gm.CurrPauseState == GameManager.PauseState.NONE)
             {
                 FindObjectOfType<AudioManager>().PlaySound(name);
             }

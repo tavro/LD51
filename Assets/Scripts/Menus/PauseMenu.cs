@@ -27,9 +27,9 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (isActive != GameManager.Instance.IsPaused) 
+        if (isActive != (GameManager.Instance.CurrPauseState == GameManager.PauseState.FULL)) 
         {
-            isActive = GameManager.Instance.IsPaused;
+            isActive = GameManager.Instance.CurrPauseState == GameManager.PauseState.FULL;
             foreach (GameObject child in children)
                 child.SetActive(isActive);
 
@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
 
     public void UnpauseGame()
     {
-        GameManager.Instance.IsPaused = false;
+        GameManager.Instance.SetPauseState(GameManager.Instance.PrevPauseState);
     }
 
     public void LoadTitleScreen()

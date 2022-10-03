@@ -30,7 +30,7 @@ public class CropManager : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             bool cropsAreGone = true;
             foreach (Crop crop in crops)
@@ -40,7 +40,12 @@ public class CropManager : MonoBehaviour
             }
 
             if (cropsAreGone)
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 SceneManager.LoadScene("FarmScene");
+            }
+                
+
         }
     }
 

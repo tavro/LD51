@@ -31,7 +31,7 @@ public class Fox : MonoBehaviour
     }
 
     void Update() {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             if (isApproaching)
             {
@@ -73,7 +73,4 @@ public class Fox : MonoBehaviour
             }
         }
     }
-
-    // - Swipable if approaching crop
-    // - 
 }
