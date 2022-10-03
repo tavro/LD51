@@ -22,9 +22,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public bool IsPaused { set; get; }
     public PauseState CurrPauseState { get; private set; }
-    private PauseState prevPauseState;
+    public PauseState PrevPauseState { get; private set; }
 
     private List<Notification> notifications;
     public void AddNotification(Notification notification) {
@@ -61,12 +60,12 @@ public class GameManager : MonoBehaviour
         boughtBuildings["BuildSlot-5:-3"] = new Vector2(-5.0f, -3.0f);
 
         CurrPauseState = PauseState.NONE;
-        prevPauseState = PauseState.NONE;
+        PrevPauseState = PauseState.NONE;
     }
 
     public void SetPauseState(PauseState newPauseState)
     {
-        prevPauseState = CurrPauseState;
+        PrevPauseState = CurrPauseState;
         CurrPauseState = newPauseState;
     }
 
@@ -113,11 +112,10 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            IsPaused = !IsPaused; // TODO: remove when everything has been replaced
             if (CurrPauseState != PauseState.FULL)
                 SetPauseState(PauseState.FULL);
             else
-                SetPauseState(prevPauseState);
+                SetPauseState(PrevPauseState);
         }
 
         if (CurrPauseState == PauseState.NONE && GetState() == State.FARM)
