@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddd3b56110d793b4cbd3e66e6df08da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  approachSpeed: 2
+  approachSpeed: 1.5
   fleeSpeed: 5
   dustEffectPrefab: {fileID: 2281546748736265383, guid: 0c1cc99a167e39d998eb8efa15732a37, type: 3}
 --- !u!61 &-8559018226155981182

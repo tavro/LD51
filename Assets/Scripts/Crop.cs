@@ -32,9 +32,8 @@ public class Crop : MonoBehaviour
                 Vector2 mousePosRelative = mousePosGlobal - (Vector2)transform.position;
 
                 float pullAngle = Vector2.SignedAngle(Vector2.up, mousePosRelative);
-                renderer.transform.rotation = Quaternion.Euler(0, 0, pullAngle); // TODO: clamp to margins 
+                renderer.transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(pullAngle, -pullAngleMargin, pullAngleMargin)); 
 
-                // TODO: stick back in if outside of margins (pullRaiseAngleMargins or smth)
                 float pullDist = mousePosRelative.magnitude;
                 renderer.transform.position = Vector2.Lerp(visualOrigPos, visualOrigPos + (Vector2)renderer.transform.up * visualPullDist, pullDist / distToPullOut);
 
