@@ -14,7 +14,7 @@ public class Wool : MonoBehaviour
     }
 
     void Update() {
-        if(!GameManager.Instance.IsPaused && transform.parent == null) {
+        if(GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE && transform.parent == null) {
             if(sr.color.a > 0.0f) {
                 sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
             }

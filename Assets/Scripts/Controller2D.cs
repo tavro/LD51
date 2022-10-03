@@ -76,7 +76,7 @@ public class Controller2D : MonoBehaviour
         transform.Translate(velocity);
 
         // Handle triggers
-        if (!GameManager.Instance.IsPaused && triggerListener != null)
+        if (GameManager.Instance.CurrPauseState != GameManager.PauseState.FULL && triggerListener != null)
         {
             foreach (GameObject obj in currTriggerObjects)
             {
