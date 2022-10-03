@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
                 SetPauseState(PrevPauseState);
         }
 
-        if (CurrPauseState == PauseState.NONE && GetState() == State.FARM)
+        if (CurrPauseState != PauseState.FULL)
         {
             dayTimer += Time.deltaTime;
             if (dayTimer >= DAY_LENGTH)
@@ -160,15 +160,6 @@ public class GameManager : MonoBehaviour
         if(dayUI != null)
             dayUI.GetComponent<TextMeshProUGUI>().text = "Day: " + Day.ToString();
     }
-
-    public State GetState() { 
-        Scene currScene = SceneManager.GetActiveScene();
-        if (currScene.name == "FarmScene")
-            return State.FARM;
-        return State.MINIGAME;
-    }
-
-    public enum State { FARM, MINIGAME }
 
     public enum PauseState { NONE, MENU, FULL }
 }
