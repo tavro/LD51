@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
+  m_Name: Spam
+  m_EditorClassIdentifier: 
+  day: 225
+  subject: "Dear Karl \xC5ke!"
+  body: 'We now present to you, the best evening course you will ever take! No matter
+    if you have a PhD in Computer Science or are simply a lonely farmer, this will
+    Rock Your World!!! For only 500 Riksdals, you can join Sandalen at a 30 weeks
+    long program to learn all about the super boring technicalities of Software Engineering.
+    The course includes: SCRUM-meetings, never-ending Risk assessment, even more
+    SCRUM-meetings, Requirements for playing Minecraft on your computer, and a step
+    by step guide on how to lead and take part in a SCRUM-meetings. '
+  author: "If you are interested in lectures, even more boring lecture exercises,
+    and an evening course that you will never forget, please contact us at: \nwww.julkalender@Computer.com."

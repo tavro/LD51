@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
+  m_Name: Letter From Friend
+  m_EditorClassIdentifier: 
+  day: 75
+  subject: 'Kalle my man!!! '
+  body: "Im in the woods, so to speak, and I tink that we sould hang out soon! Do
+    you rememember wehn we where kids\u2019, and we used too play cow-and-farmer?
+    Good times! I used too bee the cow and you the farmer, rigt? Realy verry good
+    times.\r\n\r\nI hope that we can met up soon!\r\r"
+  author: 'Kisses and Hugs,
+
+    Olle-August'

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
+  m_Name: Letter From Grandma
+  m_EditorClassIdentifier: 
+  day: 80
+  subject: Letter from Grandma 1
+  body: "Hej Karl!\r\n\r\nHoppas att allt \xE4r bra med dig! Jag saknar dig v\xE4ldigt
+    mycket. Det \xE4r lite tomt h\xE4r med bara Lars-Erik och jag. Vi beh\xF6ver
+    dig h\xE4r hemma, ditt lilla busfr\xF6! Men vi f\xF6rst\xE5r att du har mycket
+    att g\xF6ra med \xE5kern. Vi vill ju g\xE4rna att du ska uppfylla dina dr\xF6mmar,
+    och du har ju alltid dr\xF6mt om att \xE4ga en farm med lamm och kycklingar.
+    Vi vill ju bara att du ska vara lycklig.\r"
+  author: "\xC4lskar dig, hoppas att vi kan ses snart,\r\nMormor"
