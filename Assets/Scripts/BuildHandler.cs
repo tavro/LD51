@@ -90,7 +90,7 @@ public class BuildHandler : MonoBehaviour
             }
         }
         else if(canBuyFarmFarm && Input.GetKeyDown(KeyCode.F)) {
-            Buyable buyable = new Buyable(null, 2000, "FarmFarm");
+            Buyable buyable = new Buyable(null, 1999, "FarmFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
                 Build(farmPrefab, buildSlot.transform.position, buyable.name);
             }

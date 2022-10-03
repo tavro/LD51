@@ -16,6 +16,7 @@ public class Player : MonoBehaviour, ITriggerListener
 
     private GameManager gm;
     private Coroutine walkSound;
+    private Coroutine gruntSound;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour, ITriggerListener
     {
         GameManager.Instance.PlaceBoughtBuildings();
         controller.SetTriggerListener(this);
+        gruntSound ??= StartCoroutine(MakeSound.SoundPlayer("Grunt", 3f, 6f, GameManager.Instance));
     }
 
     private void Update()
@@ -115,6 +117,11 @@ public class Player : MonoBehaviour, ITriggerListener
         if (gm is not null)
         {
             gm.LastPlayerPos = gameObject.transform.position;
+        }
+        if(gruntSound != null)
+        {
+            StopCoroutine(gruntSound);
+            gruntSound = null;
         }
     }
 }
