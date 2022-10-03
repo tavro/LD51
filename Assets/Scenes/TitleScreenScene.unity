@@ -8113,12 +8113,11 @@ MonoBehaviour:
   - {fileID: 5415657523608083147, guid: 294f988fba0724c4faa5d85b30f73d7b, type: 3}
   - {fileID: 35317445793390906, guid: 542322a4e48658b499794199a9a61f28, type: 3}
   - {fileID: 2034064138712343829, guid: 036eabda86b31744fb591d01e42285f5, type: 3}
-  animations:
-  - {fileID: 9100000, guid: 57ae1f7017ce18f43845ca7e265bf8ad, type: 2}
-  - {fileID: 9100000, guid: 5cf3c674ad95aa046b191cd6abccd946, type: 2}
-  - {fileID: 9100000, guid: a3b2aaad81ec27e458a265feb2c09d49, type: 2}
-  - {fileID: 9100000, guid: 675476920e59ea94e9715d376dee725e, type: 2}
-  animalPrefab: {fileID: 7576144107568000671, guid: 085c5f7174058f44c8ba638c1961a91a, type: 3}
+  animals:
+  - {fileID: 7869674125628711151, guid: 2643ef72564046ae6a521d230ddd8104, type: 3}
+  - {fileID: 1257831659914610413, guid: b0cfa83e067b924f4b7ffcf4a013dc35, type: 3}
+  - {fileID: 4979583967865508034, guid: 4444129767d4c3ece90b71f918c2a9da, type: 3}
+  - {fileID: 7220328962698699523, guid: 65f9bc05c301628fd910635f69e5eb27, type: 3}
 --- !u!1 &1047250183
 GameObject:
   m_ObjectHideFlags: 0
