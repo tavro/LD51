@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RandomMovement : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class RandomMovement : MonoBehaviour
     }
 
     void Update() {
-        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
+        if (SceneManager.GetActiveScene().name == "TitleScreenScene" || GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             float step = speed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, target, step);
