@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1504903500164423686}
   - component: {fileID: 1504903500164423687}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1504903500455142533
@@ -431,7 +431,7 @@ Transform:
   - {fileID: 1504903500211614881}
   - {fileID: 1504903500164423686}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1504903501124858582
 SpriteRenderer:
