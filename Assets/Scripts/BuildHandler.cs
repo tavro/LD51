@@ -38,7 +38,8 @@ public class BuildHandler : MonoBehaviour
 
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
-            Buyable buyable;
+            Buyable buyable = new Buyable();
+            buyable.img = null;
             buyable.price = 0;
             buyable.name = "Sheep Farm";
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
