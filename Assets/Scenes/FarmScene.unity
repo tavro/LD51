@@ -2729,9 +2729,17 @@ MonoBehaviour:
   activeLetter: {fileID: 522035945}
   openSprite: {fileID: 21300000, guid: f01bc57fabc3c1245969decf1633e9ed, type: 3}
   letterDataList:
-  - {fileID: 11400000, guid: 312c4a4d15d780234bc69cc4c5ff21f5, type: 2}
+  - {fileID: 11400000, guid: 72f20db1fadd4b54291f5be37bebfa82, type: 2}
+  - {fileID: 11400000, guid: 976fb9f10ce9da447a8bfd0b61f0733e, type: 2}
+  - {fileID: 11400000, guid: 59265aabebd15f241b63d9fd7d5068c7, type: 2}
   - {fileID: 11400000, guid: f64af01b8c0cf8bc08cec55732b5137e, type: 2}
   - {fileID: 11400000, guid: cd0cbfc96c915034a8f84a8ff8476490, type: 2}
+  - {fileID: 11400000, guid: 312c4a4d15d780234bc69cc4c5ff21f5, type: 2}
+  - {fileID: 11400000, guid: 880c0a6e61beb974fa51bc18a2e56bf7, type: 2}
+  - {fileID: 11400000, guid: 73b56e4a73f503a438357499e62a942e, type: 2}
+  - {fileID: 11400000, guid: 416490c6d2b305649a5d6acdd6c1904f, type: 2}
+  - {fileID: 11400000, guid: 02278f9fa48cc334aa9fcf25b1cab5f6, type: 2}
+  - {fileID: 11400000, guid: 1d91ebfccd021124cb2977e55d0146e2, type: 2}
 --- !u!1 &1201491529
 GameObject:
   m_ObjectHideFlags: 0

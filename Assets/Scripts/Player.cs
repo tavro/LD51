@@ -35,7 +35,7 @@ public class Player : MonoBehaviour, ITriggerListener
 
     private void Update()
     {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             float horizontalMoveDir = Input.GetAxisRaw("Horizontal");
             float verticalMoveDir = Input.GetAxisRaw("Vertical");
@@ -58,10 +58,6 @@ public class Player : MonoBehaviour, ITriggerListener
 
             velocity = Vector2.right * horizontalMoveDir + Vector2.up * verticalMoveDir;
             velocity.Normalize();
-            controller.Move(velocity * moveSpeed * Time.deltaTime);
-
-            animator.SetFloat("velocity", velocity.magnitude);
-            animator.SetBool("isWalking", velocity != Vector2.zero);
             
             if(horizontalMoveDir != 0 || verticalMoveDir != 0)
             {
@@ -76,6 +72,15 @@ public class Player : MonoBehaviour, ITriggerListener
                 }
             }
         }
+        else
+        {
+            velocity = Vector2.zero;
+        }
+
+        controller.Move(velocity * moveSpeed * Time.deltaTime);
+
+        animator.SetFloat("velocity", velocity.magnitude);
+        animator.SetBool("isWalking", velocity != Vector2.zero);
     }
 
     public void TriggerEnter(GameObject obj)

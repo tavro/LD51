@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
+  m_Name: Add
+  m_EditorClassIdentifier: 
+  day: 125
+  subject: Out Now!
+  body: "The hottest new movie is now out on cinemas, Anna-Karin\u2019s Biggest Trial!
+    Follow Anna-Karin as she goes through the Swedish woods in search of the lost
+    president of a very internationally important, unspecified country and fights
+    everything that the Swedish nature has to offer! She will face many perils, from
+    wolfs to ice-giants to hot, half-naked men with huge six-packs! Will Anna-Karin
+    be able to survive? Watch Anna-Karin\u2019s Biggest Trial NOW to find out!!!\r"
+  author: (We do not support going around half-naked with your six-pack out in the
+    Swedish woods in the middle of winter. It can be very cold and hospital visits
+    may be needed for the six-packs.)
