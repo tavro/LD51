@@ -254,7 +254,7 @@ MonoBehaviour:
   - {fileID: 1987701491}
   - {fileID: 116944258}
   - {fileID: 619671260}
-  debugMinCrops: 12
+  debugMinCrops: 0
 --- !u!4 &30919138
 Transform:
   m_ObjectHideFlags: 0
