@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
         Inventory = new Inventory();
         notifications = new List<Notification>();
         Day = 1;
-        boughtBuildings = new Dictionary<string, Vector2>();
         buildingInteractionDays = new Dictionary<string, int>();
 
+        boughtBuildings = new Dictionary<string, Vector2>();
         boughtBuildings["BuildSlot0:-4"] = new Vector2(0.0f, -4.0f);
         boughtBuildings["BuildSlot8:4"] = new Vector2(8.0f, 4.0f);
         boughtBuildings["BuildSlot-8:-4"] = new Vector2(-8.0f, -4.0f);

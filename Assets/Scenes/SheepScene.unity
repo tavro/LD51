@@ -8466,10 +8466,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1d5c97c32f06f4eb681939ee528f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 2
+  offset: 1
   speed: 0.5
-  minPos: {x: -3.25, y: -0.9}
-  maxPos: {x: 3.25, y: 0.9}
+  minPos: {x: -2.5, y: -0.5}
+  maxPos: {x: 2.5, y: 0.5}
 --- !u!114 &1659418841
 MonoBehaviour:
   m_ObjectHideFlags: 0
