@@ -17,14 +17,22 @@ public class BuildHandler : MonoBehaviour
     bool canBuyCowFarm = true;
     bool canBuyFarmFarm = true;
 
+    [SerializeField] GameObject sheepUI;
+    [SerializeField] GameObject cowUI;
+    [SerializeField] GameObject farmUI;
+
     void Start() {
-        canBuySheepFarm = CheckIfBuilt("SheepFarm");
-        canBuyCowFarm = CheckIfBuilt("CowFarm");
-        canBuyFarmFarm = CheckIfBuilt("FarmFarm");
+        canBuySheepFarm = !CheckIfBuilt("SheepFarm");
+        canBuyCowFarm = !CheckIfBuilt("CowFarm");
+        canBuyFarmFarm = !CheckIfBuilt("FarmFarm");
+
+        sheepUI.SetActive(canBuySheepFarm);
+        cowUI.SetActive(canBuyCowFarm);
+        farmUI.SetActive(canBuyFarmFarm);
     }
 
     bool CheckIfBuilt(string name) {
-        return !GameManager.Instance.boughtBuildings.ContainsKey(name);
+        return GameManager.Instance.boughtBuildings.ContainsKey(name);
     }
 
     public void SetBuildSlot(BuildSlot slot) {
@@ -41,10 +49,6 @@ public class BuildHandler : MonoBehaviour
         Destroy(buildSlot.gameObject);
         CloseUI();
     }
-
-    [SerializeField] GameObject sheepUI;
-    [SerializeField] GameObject cowUI;
-    [SerializeField] GameObject farmUI;
 
     void Build(GameObject prefab, GameObject uiObject, string name) {
         Instantiate(prefab, buildSlot.transform.position, Quaternion.identity);
