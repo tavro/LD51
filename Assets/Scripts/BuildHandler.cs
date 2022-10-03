@@ -66,7 +66,7 @@ public class BuildHandler : MonoBehaviour
     }
 
     float GetBuildOffset() {
-        float offset = 1.0f;
+        float offset = -1.0f;
         if(buildSlot.transform.position.y > 0.0f)
             offset *= -1;
         return offset;
