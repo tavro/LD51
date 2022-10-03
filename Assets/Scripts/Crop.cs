@@ -33,7 +33,7 @@ public class Crop : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             if (isFollowingMouse && !IsPulled)
             {
@@ -70,12 +70,11 @@ public class Crop : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 isFollowingMouse = true;
-
             }
             Cursor.SetCursor(handyDandy, handyHotSpot, cursorMode);
         }
