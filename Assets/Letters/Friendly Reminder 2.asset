@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Friendly Reminder 2
   m_EditorClassIdentifier: 
-  day: 100
+  day: 50
   subject: "Hi Karl \xC5ke"
   body: 'Time is dire and Time is Money. We here at the Bank of Unreliable Accountants
     heavily believe in that message. In face, we say it every morning at our mandatory

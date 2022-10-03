@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Reminder 2
   m_EditorClassIdentifier: 
-  day: 266
+  day: 133
   subject: Second reminder of loan repayment
   body: 'Hello for the third time dear customer,
 
@@ -21,7 +21,7 @@ MonoBehaviour:
     Accountants are starting to get impatient at your lack of repayment regarding
     your loan. We are not money hungry, but we would very much like to get back the
     money that you borrowed from us, with our customary 900% interest rate. We hope
-    that you will be able to repay us soon. The deadline is in 100 days.
+    that you will be able to repay us soon. The deadline is in 50 days.
 
 
     As

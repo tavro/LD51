@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Friendly Reminder 1
   m_EditorClassIdentifier: 
-  day: 50
+  day: 25
   subject: "Dear Mr. Karl \xC5ke"
   body: "We here at the Bank of Unreliable Accountants are happily awaiting your
     payment of your loan of 1000 Riksdals. We hope that you are doing as well as

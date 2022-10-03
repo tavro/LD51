@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Reminder 1
   m_EditorClassIdentifier: 
-  day: 166
+  day: 83
   subject: Reminder of loan repayment
   body: 'Hello again dear customer,
 
 
     We at the Bank of Unreliable Accountants
     hope that you are doing well. We would like to remind you that you loan is due
-    to be repaid in 200 days. We hope that this time plan works for you. If you would
+    to be repaid in 100 days. We hope that this time plan works for you. If you would
     like additional time, that is unfortunately not possible, as we do not care about
     your needs or personal problems.
 

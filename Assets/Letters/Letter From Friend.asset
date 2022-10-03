@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Letter From Friend
   m_EditorClassIdentifier: 
-  day: 75
+  day: 37
   subject: 'Kalle my man!!! '
   body: "Im in the woods, so to speak, and I tink that we sould hang out soon! Do
     you rememember wehn we where kids\u2019, and we used too play cow-and-farmer?

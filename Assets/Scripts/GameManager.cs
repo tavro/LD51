@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name != "EndScene" && CurrPauseState != PauseState.FULL && Day >= 366)
+        if (SceneManager.GetActiveScene().name != "EndScene" && CurrPauseState != PauseState.FULL && Day >= 183)
             SceneManager.LoadScene("EndScene");
     }
 

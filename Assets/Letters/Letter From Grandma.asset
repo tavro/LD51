@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Letter From Grandma
   m_EditorClassIdentifier: 
-  day: 80
+  day: 40
   subject: Letter from Grandma 1
   body: "Hej Karl!\r\n\r\nHoppas att allt \xE4r bra med dig! Jag saknar dig v\xE4ldigt
     mycket. Det \xE4r lite tomt h\xE4r med bara Lars-Erik och jag. Vi beh\xF6ver

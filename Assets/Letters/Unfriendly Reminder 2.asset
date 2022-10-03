@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Unfriendly Reminder 2
   m_EditorClassIdentifier: 
-  day: 230
+  day: 115
   subject: "My Dear, Lovely Karl \xC5ke."
   body: "I am writing to you as the new CEO of the Bank of Money, as the old CEO
     went to prison for murder. I am very happy to have you as one of our Dear Costumers!
