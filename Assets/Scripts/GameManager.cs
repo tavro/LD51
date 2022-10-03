@@ -92,6 +92,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (FindObjectOfType<GameManager>() != this)
+            Destroy(gameObject);
+    }
+
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))
