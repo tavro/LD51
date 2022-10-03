@@ -18,20 +18,23 @@ public class Notification : MonoBehaviour
     }
 
     void Update() {
-        if(isNotified) {
-            if(sr.color.a <= 1.0f) {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a + Time.deltaTime);
-            }
-            else {
-                timePassed += Time.deltaTime;
-                if(timePassed >= appearTime) {
-                    isNotified = false;
-                    timePassed = 0.0f;
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
+        {
+            if(isNotified) {
+                if(sr.color.a <= 1.0f) {
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a + Time.deltaTime);
                 }
-            }
-        } else {
-            if(sr.color.a >= 0.0f) {
-                sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
+                else {
+                    timePassed += Time.deltaTime;
+                    if(timePassed >= appearTime) {
+                        isNotified = false;
+                        timePassed = 0.0f;
+                    }
+                }
+            } else {
+                if(sr.color.a >= 0.0f) {
+                    sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime);
+                }
             }
         }
     }

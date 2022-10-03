@@ -43,9 +43,12 @@ public class CrackedEgg : MonoBehaviour
 
     void Update()
     {
-        DecreaseOpacity(sr1);
-        DecreaseOpacity(sr2);   
-        MoveTowards(child1, target1);  
-        MoveTowards(child2, target2);
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
+        {
+            DecreaseOpacity(sr1);
+            DecreaseOpacity(sr2);   
+            MoveTowards(child1, target1);  
+            MoveTowards(child2, target2);
+        }
     }
 }

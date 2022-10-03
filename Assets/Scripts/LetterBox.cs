@@ -11,7 +11,6 @@ public class LetterBox : MonoBehaviour, IInteractable
     private Sprite closedSprite;
 
     [SerializeField] private List<LetterData> letterDataList;
-    [SerializeField] private List<LetterData> sellLetterDataList;
     private LetterData nextLetterData, currLetterData;
 
     private new SpriteRenderer renderer;
@@ -45,40 +44,38 @@ public class LetterBox : MonoBehaviour, IInteractable
         return a.day - b.day;
     }
 
-    // All letter data into queue
-    // Place next letter data into own variable
-    // Allow reading letter data if day is gte than letter day
-    // Load next letter data into variable
-    // Save prev letter data into prev variable
-    // Repeat
-
     public void OnInteraction()
     {
-        if (activeLetter.gameObject.activeSelf)
+        if (GameManager.Instance.CurrPauseState != GameManager.PauseState.FULL)
         {
-            activeLetter.gameObject.SetActive(false);
-            renderer.sprite = closedSprite;
-        }
-        else
-        {
-            activeLetter.gameObject.SetActive(true);
-            renderer.sprite = openSprite;
-
-            if (nextLetterData != null && nextLetterData.day <= GameManager.Instance.Day)
+            if (activeLetter.gameObject.activeSelf)
             {
-                currLetterData = nextLetterData;
-                if (letterDataList.Count > 0)
-                {
-                    nextLetterData = letterDataList[0];
-                    letterDataList.RemoveAt(0);
-                }
-                else
-                    nextLetterData = null;
+                activeLetter.gameObject.SetActive(false);
+                renderer.sprite = closedSprite;
+                GameManager.Instance.SetPauseState(GameManager.PauseState.NONE);
             }
+            else
+            {
+                activeLetter.gameObject.SetActive(true);
+                renderer.sprite = openSprite;
 
-            activeLetter.SetTitle(currLetterData.subject);
-            activeLetter.SetContent(currLetterData.body);
-            activeLetter.SetAuthor(currLetterData.author);
+                if (nextLetterData != null && nextLetterData.day <= GameManager.Instance.Day)
+                {
+                    currLetterData = nextLetterData;
+                    if (letterDataList.Count > 0)
+                    {
+                        nextLetterData = letterDataList[0];
+                        letterDataList.RemoveAt(0);
+                    }
+                    else
+                        nextLetterData = null;
+                }
+
+                activeLetter.SetTitle(currLetterData.subject);
+                activeLetter.SetContent(currLetterData.body);
+                activeLetter.SetAuthor(currLetterData.author);
+                GameManager.Instance.SetPauseState(GameManager.PauseState.MENU);
+            }
         }
     }
 

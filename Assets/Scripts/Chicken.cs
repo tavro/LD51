@@ -31,7 +31,7 @@ public class Chicken : MonoBehaviour
     }
 
     void Update() {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             float step = speed * Time.deltaTime;
             transform.position = Vector2.MoveTowards(transform.position, target, step);
