@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
-  m_Name: Letter 3
+  m_Name: Reminder 2
   m_EditorClassIdentifier: 
   day: 266
   subject: Second reminder of loan repayment

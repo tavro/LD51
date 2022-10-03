@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
+  m_Name: Friendly Reminder 2
+  m_EditorClassIdentifier: 
+  day: 100
+  subject: "Hi Karl \xC5ke"
+  body: 'Time is dire and Time is Money. We here at the Bank of Unreliable Accountants
+    heavily believe in that message. In face, we say it every morning at our mandatory
+    SCRUM meetings, that we have standing as we believe in efficiency, just like
+    Sandalen told us. Anyways.
+
+
+
+    It is not a lot of time left for you to collect
+    your money. Or Our money. Whatever.
+
+
+    So please hurry and give Us Our 1000
+    Riksdals.'
+  author: "Best Regards,\r\r\nCap I Talism\r\nSoon to be CEO of the Bank of Unreliable
+    Accountants, Waiting for Mon Eh Hungry to die already."
