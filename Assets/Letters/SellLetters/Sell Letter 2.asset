@@ -9,22 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
-  m_Name: Sell 1
+  m_Script: {fileID: 11500000, guid: 41f5338266bc8e64b92188cc33fd1973, type: 3}
+  m_Name: Sell Letter 2
   m_EditorClassIdentifier: 
-  day: 10
-  subject: Buying Eggs
+  sellButton: 115
+  amount: 10
+  subject: Buying Wool
   body: 'Hey farmer!
 
 
-    I would love to buy some of your delicious eggs...
+    I would love to buy some of your soft wool...
 
 
     Gather
-    X eggs and i will give you some sweet sweet money
+    X wool and i will give you some glimmering cash
 
 
-    Best regards,
+'
+  author: 'Best regards,
 
-    Hungry
-    Neighbour'
+    Cold Neighbour'

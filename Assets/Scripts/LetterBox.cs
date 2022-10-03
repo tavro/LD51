@@ -77,6 +77,7 @@ public class LetterBox : MonoBehaviour, IInteractable
 
             activeLetter.SetTitle(currLetterData.subject);
             activeLetter.SetContent(currLetterData.body);
+            activeLetter.SetAuthor(currLetterData.author);
         }
     }
 

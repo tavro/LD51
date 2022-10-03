@@ -9,22 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
-  m_Name: Sell 3
+  m_Script: {fileID: 11500000, guid: 41f5338266bc8e64b92188cc33fd1973, type: 3}
+  m_Name: Sell Letter 4
   m_EditorClassIdentifier: 
-  day: 30
-  subject: Buying Milk
+  sellButton: 115
+  amount: 10
+  subject: Buying Wheet
   body: 'Hey farmer!
 
 
-    I would love to buy some of your warm milk...
+    I would love to eat bread...
 
 
-    Gather
-    X buckets of milk and i will give you some *ka-ching* in the bank...
+    Gather X hands full
+    of wheet and i will give you some coins to flip...
 
+'
+  author: 'Best regards,
 
-    Best
-    regards,
-
-    Thirsty Neighbour'
+    Bread'
