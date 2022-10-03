@@ -20,4 +20,9 @@ public class Building : MonoBehaviour, IInteractable
     {
         return interactionDesc;
     }
+
+    public string GetInteractionKey()
+    {
+        return interactionKey;
+    }
 }

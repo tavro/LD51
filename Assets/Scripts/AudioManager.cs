@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
         var sound = Array.Find(sounds, sound => sound.name == name);
         try
         {
-            sound.audioSource.clip = sound.audioClips[Random.Range(0,sound.audioClips.Length-1)];
+            sound.audioSource.clip = sound.audioClips[Random.Range(0,sound.audioClips.Length)];
             sound.audioSource.Play();
         }
         catch(Exception err)
