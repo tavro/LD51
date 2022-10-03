@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1687999160170406120}
   - component: {fileID: 1769745702767547143}
-  - component: {fileID: 7238908996411188006}
   - component: {fileID: 2245500856881435688}
   - component: {fileID: 2257522934320593722}
   m_Layer: 0
@@ -54,22 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 0}
   price: 0
-  name: 
---- !u!114 &7238908996411188006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7759712319836153567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58c12fcf6b95d14394e2278bee72af3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  img: {fileID: 0}
-  price: 0
-  name: 
+  name: Cow Farm
 --- !u!222 &2245500856881435688
 CanvasRenderer:
   m_ObjectHideFlags: 0

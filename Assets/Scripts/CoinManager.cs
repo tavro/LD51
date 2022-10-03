@@ -12,12 +12,14 @@ public class CoinManager
         GameObject.Find("Money Text").GetComponent<TextMeshProUGUI>().text = GetCoinCount().ToString();
     }
 
-    public void Buy(Buyable item)
+    public bool Buy(Buyable item) // returns true if you have enough money to buy, else false
     {
         if(coinCount >= item.price) {
             coinCount -= item.price;
             UpdateUI();
+            return true;
         }
+        return false;
     }
 
     public void Sell(Sellable item)

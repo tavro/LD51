@@ -38,11 +38,13 @@ public class BuildHandler : MonoBehaviour
 
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
-            Instantiate(sheepFarmPrefab, buildSlot.transform.position, Quaternion.identity);
-            GameManager.Instance.AddBuilding("SheepFarm", buildSlot.transform.position);
-            DestroyBuildSlot();
-            canBuySheepFarm = false;
-            sheepUI.gameObject.SetActive(false);
+            if(GameManager.Instance.CoinManager.Buy()) {
+                Instantiate(sheepFarmPrefab, buildSlot.transform.position, Quaternion.identity);
+                GameManager.Instance.AddBuilding("SheepFarm", buildSlot.transform.position);
+                DestroyBuildSlot();
+                canBuySheepFarm = false;
+                sheepUI.gameObject.SetActive(false);
+            }
         }
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
             Instantiate(cowFarmPrefab, buildSlot.transform.position, Quaternion.identity);
