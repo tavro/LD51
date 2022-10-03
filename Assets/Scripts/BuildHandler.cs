@@ -36,33 +36,36 @@ public class BuildHandler : MonoBehaviour
     [SerializeField] GameObject cowUI;
     [SerializeField] GameObject farmUI;
 
+    void Build(GameObject prefab, string name) {
+        Instantiate(prefab, buildSlot.transform.position, Quaternion.identity);
+        GameManager.Instance.AddBuilding(name, buildSlot.transform.position);
+        DestroyBuildSlot();
+    }
+
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
-            Buyable buyable = new Buyable();
-            buyable.img = null;
-            buyable.price = 0;
-            buyable.name = "Sheep Farm";
+            Buyable buyable = new Buyable(null, 0, "SheepFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
-                Instantiate(sheepFarmPrefab, buildSlot.transform.position, Quaternion.identity);
-                GameManager.Instance.AddBuilding("SheepFarm", buildSlot.transform.position);
-                DestroyBuildSlot();
+                Build(sheepFarmPrefab, buyable.name);
                 canBuySheepFarm = false;
                 sheepUI.gameObject.SetActive(false);
             }
         }
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
-            Instantiate(cowFarmPrefab, buildSlot.transform.position, Quaternion.identity);
-            GameManager.Instance.AddBuilding("CowFarm", buildSlot.transform.position);
-            DestroyBuildSlot();
-            canBuyCowFarm = false;
-            cowUI.gameObject.SetActive(false);
+            Buyable buyable = new Buyable(null, 0, "CowFarm");
+            if(GameManager.Instance.CoinManager.Buy(buyable)) {
+                Build(cowFarmPrefab, buyable.name);
+                canBuyCowFarm = false;
+                cowUI.gameObject.SetActive(false);
+            }
         }
         else if(canBuyFarmFarm && Input.GetKeyDown(KeyCode.F)) {
-            Instantiate(farmPrefab, buildSlot.transform.position, Quaternion.identity);
-            GameManager.Instance.AddBuilding("FarmFarm", buildSlot.transform.position);
-            DestroyBuildSlot();
-            canBuyFarmFarm = false;
-            farmUI.gameObject.SetActive(false);
+            Buyable buyable = new Buyable(null, 0, "FarmFarm");
+            if(GameManager.Instance.CoinManager.Buy(buyable)) {
+                Build(farmPrefab, buyable.name);
+                canBuyFarmFarm = false;
+                farmUI.gameObject.SetActive(false);
+            }
         }
     }
 }
