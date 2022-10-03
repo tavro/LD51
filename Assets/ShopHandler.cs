@@ -33,7 +33,7 @@ public class ShopHandler : MonoBehaviour, IInteractable
     }
 
     bool HasItems() {
-        return GameManager.Instance.Inventory.eggAmount > 0 && GameManager.Instance.Inventory.woolAmount > 0 && GameManager.Instance.Inventory.milkAmount > 0 && GameManager.Instance.Inventory.cropAmount > 0;
+        return GameManager.Instance.Inventory.eggAmount > 0 || GameManager.Instance.Inventory.woolAmount > 0 || GameManager.Instance.Inventory.milkAmount > 0 || GameManager.Instance.Inventory.cropAmount > 0;
     }
 
     public string GetInteractionDesc() {

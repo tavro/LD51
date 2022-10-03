@@ -135,6 +135,9 @@ public class GameManager : MonoBehaviour
                 Debug.Log($"Current day: {Day}"); // TODO: remove (debug purposes)
             }
         }
+
+        if (CurrPauseState != PauseState.FULL && Day == 366)
+            SceneManager.LoadScene("EndScene");
     }
 
     public void InteractWithBuilding(string key)
