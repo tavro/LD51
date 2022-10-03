@@ -27,6 +27,7 @@ public class Fox : MonoBehaviour
         targetCrop = cropManager.GetRandomCrop();
         startPos = transform.position;
         isApproaching = true;
+        FindObjectOfType<AudioManager>().PlaySound("Attack");
     }
 
     void Update() {
@@ -42,6 +43,7 @@ public class Fox : MonoBehaviour
                 {
                     targetCrop.PullOut();
                     Destroy(gameObject);
+                    FindObjectOfType<AudioManager>().PlaySound("Happy");
                 }
 
                 if (Input.GetMouseButtonDown(0))
@@ -57,6 +59,7 @@ public class Fox : MonoBehaviour
                         Particle dustParticle = Instantiate(dustEffectPrefab, transform.position, Quaternion.identity);
                         dustParticle.SetAngle(Vector2.SignedAngle(Vector2.right, swipeCurrPos - swipePrevPos));
                         Debug.Log(Vector2.SignedAngle(Vector2.right, swipeCurrPos - swipePrevPos));
+                        FindObjectOfType<AudioManager>().PlaySound("Sad");
                     }
                     swipePrevPos = swipeCurrPos;
                 }
