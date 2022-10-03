@@ -110,9 +110,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        GameObject moneyUI = GameObject.Find("Money Text");
-        if (moneyUI != null)
-            moneyUI.GetComponent<TextMeshProUGUI>().text = CoinManager.GetCoinCount().ToString();
+        CoinManager.UpdateUI();
         
         if (Input.GetButtonDown("Pause"))
         {
