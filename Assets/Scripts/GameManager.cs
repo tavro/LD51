@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        GameObject.Find("Money Text").GetComponent<TextMeshProUGUI>().text = CoinManager.GetCoinCount().ToString();
         if (Input.GetButtonDown("Pause"))
         {
             if (CurrPauseState != PauseState.FULL)
