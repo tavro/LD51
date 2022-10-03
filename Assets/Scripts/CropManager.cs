@@ -9,10 +9,17 @@ public class CropManager : MonoBehaviour
     [SerializeField] private Transform[] cropPlots;
     private Crop[] crops;
 
+    [SerializeField] private int debugMinCrops;
+
     private void Start()
     {
-        int cropsToPlace = Mathf.Clamp(GameManager.Instance.DaysSinceInteraction, 0, cropPlots.Length);
-        
+#if UNITY_EDITOR
+        int minCropsToPlace = Mathf.Clamp(debugMinCrops, 0, cropPlots.Length);
+#else
+        int minCropsToPlace = 0;
+#endif
+        int cropsToPlace = Mathf.Clamp(GameManager.Instance.DaysSinceInteraction, minCropsToPlace, cropPlots.Length);
+
         if (cropsToPlace == 0)
             SceneManager.LoadScene("FarmScene"); // Just here in case
 
