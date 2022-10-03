@@ -71,6 +71,7 @@ public class LetterBox : MonoBehaviour, IInteractable
                         nextLetterData = null;
                 }
 
+                FindObjectOfType<AudioManager>().PlaySound("Crinkle");
                 activeLetter.SetTitle(currLetterData.subject);
                 activeLetter.SetContent(currLetterData.body);
                 activeLetter.SetAuthor(currLetterData.author);
