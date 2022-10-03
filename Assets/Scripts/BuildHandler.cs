@@ -93,5 +93,8 @@ public class BuildHandler : MonoBehaviour
                 Build(farmPrefab, buildSlot.transform.position, buyable.name);
             }
         }
+        else if(Input.anyKeyDown) {
+            gameObject.SetActive(false);
+        }
     }
 }
