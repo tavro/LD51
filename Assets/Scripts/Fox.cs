@@ -8,38 +8,40 @@ public class Fox : MonoBehaviour
     [SerializeField] private float approachSpeed, fleeSpeed;
     [SerializeField] private Particle dustEffectPrefab;
 
-    private GameObject target;
+    private Crop targetCrop;
     private Vector2 startPos;
     private bool isApproaching;
 
     private Vector2 swipeStartPos, swipePrevPos;
 
     private new BoxCollider2D collider;
+    private CropManager cropManager;
 
     private void Awake()
     {
         collider = GetComponent<BoxCollider2D>();
+        cropManager = GameObject.FindWithTag("CropManager").GetComponent<CropManager>();
     }
 
     void Start() {
-        target = GameObject.Find("Farm");
+        targetCrop = cropManager.GetRandomCrop();
         startPos = transform.position;
         isApproaching = true;
     }
 
     void Update() {
-            if (!GameManager.Instance.IsPaused)
+        if (!GameManager.Instance.IsPaused)
         {
             if (isApproaching)
             {
+                // TODO: if crop IsGone or IsPulled, try getting new target
+
                 float step = approachSpeed * Time.deltaTime;
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, step);
-                if (Vector2.Distance(transform.position, target.transform.position) <= 0.01f)
+                transform.position = Vector2.MoveTowards(transform.position, targetCrop.transform.position, step);
+                if (Vector2.Distance(transform.position, targetCrop.transform.position) <= 0.01f)
                 {
-                    if (target.transform.childCount > 0)
-                        Destroy(target.transform.GetChild(0).gameObject);
+                    targetCrop.PullOut();
                     Destroy(gameObject);
-                    SceneManager.LoadScene("FarmScene");
                 }
 
                 if (Input.GetMouseButtonDown(0))
