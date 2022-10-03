@@ -9,7 +9,7 @@ public class EggHandler : MonoBehaviour
     private Egg lastEgg;
 
     public int amount = 3;
-    public int maxAmount = 8;
+    public int maxAmount = 13;
 
     string word = "";
     int wordIndex = 0;
