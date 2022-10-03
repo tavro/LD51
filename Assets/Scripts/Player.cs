@@ -58,10 +58,6 @@ public class Player : MonoBehaviour, ITriggerListener
 
             velocity = Vector2.right * horizontalMoveDir + Vector2.up * verticalMoveDir;
             velocity.Normalize();
-            controller.Move(velocity * moveSpeed * Time.deltaTime);
-
-            animator.SetFloat("velocity", velocity.magnitude);
-            animator.SetBool("isWalking", velocity != Vector2.zero);
             
             if(horizontalMoveDir != 0 || verticalMoveDir != 0)
             {
