@@ -26,6 +26,8 @@ public class CropManager : MonoBehaviour
         crops = new Crop[cropsToPlace];
         for (int i = 0; i < cropsToPlace; i++)
             crops[i] = Instantiate(cropPrefab, cropPlots[i].position, Quaternion.identity, cropPlots[i]);
+
+        StartCoroutine(MakeSound.SoundPlayer("Swear", 4f, 7f, GameManager.Instance));
     }
 
     private void Update()
