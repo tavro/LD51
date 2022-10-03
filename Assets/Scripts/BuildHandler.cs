@@ -47,6 +47,7 @@ public class BuildHandler : MonoBehaviour
     }
 
     void CloseUI() {
+        GameManager.Instance.SetPauseState(GameManager.PauseState.NONE);
         gameObject.SetActive(false);
     }
 
@@ -93,9 +94,6 @@ public class BuildHandler : MonoBehaviour
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
                 Build(farmPrefab, buildSlot.transform.position, buyable.name);
             }
-        }
-        else if(Input.anyKeyDown) {
-            gameObject.SetActive(false);
         }
     }
 }
