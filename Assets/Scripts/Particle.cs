@@ -23,7 +23,7 @@ public class Particle : MonoBehaviour
 
     private void Update()
     {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             timer += Time.deltaTime;
             if (timer >= lifeTime)

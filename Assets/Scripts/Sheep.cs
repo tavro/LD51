@@ -34,7 +34,7 @@ public class Sheep : MonoBehaviour
     }
 
     void Update() {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             if(growth < maxGrowth) {
                 timePassed += Time.deltaTime;
@@ -47,7 +47,7 @@ public class Sheep : MonoBehaviour
     }
 
     void OnMouseOver() {
-        if(!GameManager.Instance.IsPaused && transform.childCount > 1 && Input.GetMouseButtonDown(0))
+        if(GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE && transform.childCount > 1 && Input.GetMouseButtonDown(0))
         {
             Transform child;
             do {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuildSlot : MonoBehaviour, IInteractable
 {
-    GameObject buildingsUI;
+    BuildHandler buildHandler;
 
     GameObject FindInactiveObjectByName(string name) {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
@@ -22,16 +22,29 @@ public class BuildSlot : MonoBehaviour, IInteractable
     }
 
     void Start() {
-        buildingsUI = FindInactiveObjectByName("Shop");
+        buildHandler = FindInactiveObjectByName("Shop").GetComponent<BuildHandler>();
     }
 
     public void OnInteraction() {
-        BuildHandler bh = buildingsUI.GetComponent<BuildHandler>();
-        bh.SetBuildSlot(this);
-        buildingsUI.SetActive(true);
+        if (GameManager.Instance.CurrPauseState != GameManager.PauseState.FULL)
+        {
+            if (buildHandler.gameObject.activeSelf)
+            {
+                buildHandler.gameObject.SetActive(false);
+                GameManager.Instance.SetPauseState(GameManager.PauseState.NONE);
+            }
+            else
+            {
+                buildHandler.gameObject.SetActive(true);
+                buildHandler.SetBuildSlot(this);
+                GameManager.Instance.SetPauseState(GameManager.PauseState.MENU);
+            }
+        }
     }
 
     public string GetInteractionDesc() {
-        return "open build screen";
+        if (buildHandler.gameObject.activeSelf)
+            return "Close build menu";
+        return "Open build menu";
     }
 }

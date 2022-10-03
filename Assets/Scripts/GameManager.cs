@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     }
 
     public bool IsPaused { set; get; }
+    public PauseState CurrPauseState { get; private set; }
+    private PauseState prevPauseState;
 
     private List<Notification> notifications;
     public void AddNotification(Notification notification) {
@@ -57,6 +59,15 @@ public class GameManager : MonoBehaviour
         boughtBuildings["BuildSlot0:-3"] = new Vector2(0.0f, -3.0f);
         boughtBuildings["BuildSlot6:2"] = new Vector2(6.0f, 2.0f);
         boughtBuildings["BuildSlot-5:-3"] = new Vector2(-5.0f, -3.0f);
+
+        CurrPauseState = PauseState.NONE;
+        prevPauseState = PauseState.NONE;
+    }
+
+    public void SetPauseState(PauseState newPauseState)
+    {
+        prevPauseState = CurrPauseState;
+        CurrPauseState = newPauseState;
     }
 
     public void AddBuilding(string name, Vector2 position) {
@@ -101,9 +112,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Pause"))
-            IsPaused = !IsPaused;
+        {
+            IsPaused = !IsPaused; // TODO: remove when everything has been replaced
+            if (CurrPauseState != PauseState.FULL)
+                SetPauseState(PauseState.FULL);
+            else
+                SetPauseState(prevPauseState);
+        }
 
-        if (!IsPaused && GetState() == State.FARM)
+        if (CurrPauseState == PauseState.NONE && GetState() == State.FARM)
         {
             dayTimer += Time.deltaTime;
             if (dayTimer >= DAY_LENGTH)
@@ -137,4 +154,6 @@ public class GameManager : MonoBehaviour
     }
 
     public enum State { FARM, MINIGAME }
+
+    public enum PauseState { NONE, MENU, FULL }
 }

@@ -33,10 +33,13 @@ public class RandomMovement : MonoBehaviour
     }
 
     void Update() {
-        float step = speed * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, target, step);
-        if(Vector2.Distance(transform.position, target) <= 0.01f) {
-            GetNewTargetPosition();
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, target, step);
+            if(Vector2.Distance(transform.position, target) <= 0.01f) {
+                GetNewTargetPosition();
+            }
         }
     }
 
