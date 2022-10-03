@@ -11,7 +11,6 @@ public class LetterBox : MonoBehaviour, IInteractable
     private Sprite closedSprite;
 
     [SerializeField] private List<LetterData> letterDataList;
-    [SerializeField] private List<LetterData> sellLetterDataList;
     private LetterData nextLetterData, currLetterData;
 
     private new SpriteRenderer renderer;
