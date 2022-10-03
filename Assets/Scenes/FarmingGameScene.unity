@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 44875428}
   - component: {fileID: 44875429}
   m_Layer: 0
-  m_Name: FoxHandler
+  m_Name: Fox Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 1301518918}
   - component: {fileID: 1301518917}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: TEMP Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,7 +435,7 @@ GameObject:
   - component: {fileID: 1438663995}
   - component: {fileID: 1438663994}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 1626636760}
   - component: {fileID: 1626636761}
   m_Layer: 0
-  m_Name: Pivot
+  m_Name: Wheat Crop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -666,8 +666,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_Size: {x: 0.2, y: 1}
+  m_Offset: {x: 0, y: 0.425}
+  m_Size: {x: 0.45, y: 1}
   m_Direction: 0
 --- !u!114 &1626636761
 MonoBehaviour:
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 1651135939}
   - component: {fileID: 1651135940}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
