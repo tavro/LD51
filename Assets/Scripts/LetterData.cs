@@ -8,4 +8,5 @@ public class LetterData : ScriptableObject
 	public int day;
     public string subject;
     [TextArea] public string body;
+    [TextArea] public string author;
 }

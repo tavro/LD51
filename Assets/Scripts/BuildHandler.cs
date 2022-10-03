@@ -7,11 +7,11 @@ public class BuildHandler : MonoBehaviour
     BuildSlot buildSlot;
 
     [SerializeField]
-    GameObject sheepFarmPrefab;
+    Building sheepFarmPrefab;
     [SerializeField]
-    GameObject cowFarmPrefab;
+    Building cowFarmPrefab;
     [SerializeField]
-    GameObject farmPrefab;
+    Building farmPrefab;
 
     bool canBuySheepFarm = true;
     bool canBuyCowFarm = true;
@@ -57,8 +57,9 @@ public class BuildHandler : MonoBehaviour
         CloseUI();
     }
 
-    void Build(GameObject prefab, Vector2 position, string name) {
+    void Build(Building prefab, Vector2 position, string name) {
         Instantiate(prefab, position, Quaternion.identity);
+        GameManager.Instance.InteractWithBuilding(prefab.GetInteractionKey());
         GameManager.Instance.AddBuilding(name, position);
         SetCanBuyBools();
         SetUIDisplays();

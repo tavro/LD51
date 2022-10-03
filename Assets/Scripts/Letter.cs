@@ -11,11 +11,18 @@ public class Letter : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI contentTextMesh;
 
+    [SerializeField]
+    TextMeshProUGUI authorTextMesh;
+
     public void SetTitle(string title) {
         titleTextMesh.text = title;
     }
 
     public void SetContent(string content) {
         contentTextMesh.text = content;
+    }
+
+    public void SetAuthor(string content) {
+        authorTextMesh.text = content;
     }
 }
