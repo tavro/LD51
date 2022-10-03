@@ -28,6 +28,11 @@ public class CoinManager
         UpdateUI();
     }
 
+    public void SetCoinCount(int count) {
+        coinCount = count;
+        UpdateUI();
+    }
+
     public int GetCoinCount()
     {
         return coinCount;

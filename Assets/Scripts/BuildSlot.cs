@@ -22,7 +22,7 @@ public class BuildSlot : MonoBehaviour, IInteractable
     }
 
     void Start() {
-        buildingsUI = FindInactiveObjectByName("Buildings");
+        buildingsUI = FindInactiveObjectByName("Shop");
     }
 
     public void OnInteraction() {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -40,15 +41,18 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         Inventory = new Inventory();
+
         CoinManager = new CoinManager();
+        CoinManager.SetCoinCount(100);
+
         notifications = new List<Notification>();
         Day = 1;
         buildingInteractionDays = new Dictionary<string, int>();
 
         boughtBuildings = new Dictionary<string, Vector2>();
-        boughtBuildings["BuildSlot0:-4"] = new Vector2(0.0f, -4.0f);
-        boughtBuildings["BuildSlot8:4"] = new Vector2(8.0f, 4.0f);
-        boughtBuildings["BuildSlot-8:-4"] = new Vector2(-8.0f, -4.0f);
+        boughtBuildings["BuildSlot0:-3"] = new Vector2(0.0f, -3.0f);
+        boughtBuildings["BuildSlot8:2"] = new Vector2(8.0f, 2.0f);
+        boughtBuildings["BuildSlot-5:-3"] = new Vector2(-5.0f, -3.0f);
     }
 
     public void AddBuilding(string name, Vector2 position) {
@@ -96,6 +100,9 @@ public class GameManager : MonoBehaviour
             {
                 dayTimer %= DAY_LENGTH; // Keeps the extra remainder
                 Day += 1;
+
+                if(GameObject.Find("Day Text"))
+                    GameObject.Find("Day Text").GetComponent<TextMeshProUGUI>().text = "Day: " + Day.ToString();
 
                 foreach (Notification notification in notifications)
                     notification.Notify();
