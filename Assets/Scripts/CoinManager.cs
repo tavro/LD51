@@ -9,7 +9,9 @@ public class CoinManager
     private int coinCount = 0;
 
     public void UpdateUI() {
-        GameObject.Find("Money Text").GetComponent<TextMeshProUGUI>().text = GetCoinCount().ToString();
+        GameObject moneyUI = GameObject.Find("Money Text");
+        if (moneyUI != null) // Added null-check here to avoid error outside of FarmScene
+            moneyUI.GetComponent<TextMeshProUGUI>().text = GetCoinCount().ToString();
     }
 
     public bool Buy(Buyable item) // returns true if you have enough money to buy, else false

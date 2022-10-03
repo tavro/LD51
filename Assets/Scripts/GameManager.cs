@@ -110,9 +110,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        GameObject moneyUI = GameObject.Find("Money Text");
-        if (moneyUI != null)
-            moneyUI.GetComponent<TextMeshProUGUI>().text = CoinManager.GetCoinCount().ToString();
+        CoinManager.UpdateUI();
         
         if (Input.GetButtonDown("Pause"))
         {
@@ -140,7 +138,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (CurrPauseState != PauseState.FULL && Day >= 366)
+        if (SceneManager.GetActiveScene().name != "EndScene" && CurrPauseState != PauseState.FULL && Day >= 366)
             SceneManager.LoadScene("EndScene");
     }
 
