@@ -6,14 +6,21 @@ using UnityEngine.SceneManagement;
 public class Crop : MonoBehaviour
 {
     [SerializeField] private float pullAngleMargin = 45.0f;
-    [SerializeField] private float pullDistance = 1.0f;
+    [SerializeField] private float distToPullOut = 2.5f;
+
+    [SerializeField] private new SpriteRenderer renderer;
+    [SerializeField] private float visualPullDist = 0.1f;
+    private Vector2 visualOrigPos;
 
     bool isFollowingMouse;
     
     public bool IsPulled { get; private set; }
     public bool IsGone { get; private set; }
 
-    [SerializeField] private new SpriteRenderer renderer;
+    private void Start()
+    {
+        visualOrigPos = renderer.transform.position;
+    }
 
     void Update()
     {
@@ -23,12 +30,15 @@ public class Crop : MonoBehaviour
             {
                 Vector2 mousePosGlobal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mousePosRelative = mousePosGlobal - (Vector2)transform.position;
-                float pullAngle = Vector2.SignedAngle(Vector2.up, mousePosRelative);
-                transform.rotation = Quaternion.Euler(0, 0, pullAngle); // TODO: clamp to margins 
-                // TODO: pull out further from the ground the higher up you pull (pullRaise or smth)
-                // TODO: stick back in if outside of margins (pullRaiseAngleMargins or smth)
 
-                if (Mathf.Abs(pullAngle) <= pullAngleMargin && mousePosRelative.magnitude >= pullDistance)
+                float pullAngle = Vector2.SignedAngle(Vector2.up, mousePosRelative);
+                renderer.transform.rotation = Quaternion.Euler(0, 0, pullAngle); // TODO: clamp to margins 
+
+                // TODO: stick back in if outside of margins (pullRaiseAngleMargins or smth)
+                float pullDist = mousePosRelative.magnitude;
+                renderer.transform.position = Vector2.Lerp(visualOrigPos, visualOrigPos + (Vector2)renderer.transform.up * visualPullDist, pullDist / distToPullOut);
+
+                if (Mathf.Abs(pullAngle) <= pullAngleMargin && pullDist >= distToPullOut)
                 {
                     GameManager.Instance.Inventory.cropAmount++;
                     PullOut();
