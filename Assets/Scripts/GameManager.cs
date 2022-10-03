@@ -50,9 +50,9 @@ public class GameManager : MonoBehaviour
         buildingInteractionDays = new Dictionary<string, int>();
 
         boughtBuildings = new Dictionary<string, Vector2>();
-        boughtBuildings["BuildSlot0:-4"] = new Vector2(0.0f, -4.0f);
-        boughtBuildings["BuildSlot8:4"] = new Vector2(8.0f, 4.0f);
-        boughtBuildings["BuildSlot-8:-4"] = new Vector2(-8.0f, -4.0f);
+        boughtBuildings["BuildSlot0:-3"] = new Vector2(0.0f, -3.0f);
+        boughtBuildings["BuildSlot8:2"] = new Vector2(8.0f, 2.0f);
+        boughtBuildings["BuildSlot-5:-3"] = new Vector2(-5.0f, -3.0f);
     }
 
     public void AddBuilding(string name, Vector2 position) {
