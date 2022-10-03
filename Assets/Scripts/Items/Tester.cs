@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tester : MonoBehaviour
 {
     // Start is called before the first frame update
+    int buttonPress = 0;
     void Start()
     {
     }
@@ -13,5 +14,10 @@ public class Tester : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Press()
+    {
+        buttonPress++;
+        Debug.Log("hej" + buttonPress);
     }
 }
