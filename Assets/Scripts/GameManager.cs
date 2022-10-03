@@ -106,12 +106,18 @@ public class GameManager : MonoBehaviour
     {
         if (FindObjectOfType<GameManager>() != this)
             Destroy(gameObject);
+        else
+            SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UpdateDayUI();
+        CoinManager.UpdateUI();
     }
 
     private void Update()
     {
-        CoinManager.UpdateUI();
-        
         if (Input.GetButtonDown("Pause"))
         {
             if (CurrPauseState != PauseState.FULL)
@@ -128,8 +134,7 @@ public class GameManager : MonoBehaviour
                 dayTimer %= DAY_LENGTH; // Keeps the extra remainder
                 Day += 1;
 
-                if(GameObject.Find("Day Text"))
-                    GameObject.Find("Day Text").GetComponent<TextMeshProUGUI>().text = "Day: " + Day.ToString();
+                UpdateDayUI();
 
                 foreach (Notification notification in notifications)
                     notification.Notify();
@@ -147,6 +152,13 @@ public class GameManager : MonoBehaviour
         DaysSinceInteraction = Day - buildingInteractionDays.GetValueOrDefault(key, 1);
         buildingInteractionDays[key] = Day;
         Debug.Log($"Days since interaction: {DaysSinceInteraction}");
+    }
+
+    private void UpdateDayUI()
+    {
+        GameObject dayUI = GameObject.Find("Day Text");
+        if(dayUI != null)
+            dayUI.GetComponent<TextMeshProUGUI>().text = "Day: " + Day.ToString();
     }
 
     public State GetState() { 
