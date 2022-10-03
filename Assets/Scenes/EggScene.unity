@@ -237,7 +237,7 @@ MonoBehaviour:
   eggPrefab: {fileID: 6498358281319126554, guid: 823c4f301a8b56d4a9988e860d3d90af, type: 3}
   eggInterval: 1
   amount: 3
-  maxAmount: 8
+  maxAmount: 13
 --- !u!1 &1209362837
 GameObject:
   m_ObjectHideFlags: 0
