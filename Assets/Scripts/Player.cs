@@ -15,6 +15,7 @@ public class Player : MonoBehaviour, ITriggerListener
     private Controller2D controller;
 
     private GameManager gm;
+    private Coroutine walkSound;
 
     private void Awake()
     {
@@ -61,6 +62,19 @@ public class Player : MonoBehaviour, ITriggerListener
 
             animator.SetFloat("velocity", velocity.magnitude);
             animator.SetBool("isWalking", velocity != Vector2.zero);
+            
+            if(horizontalMoveDir != 0 || verticalMoveDir != 0)
+            {
+                walkSound ??= StartCoroutine(MakeSound.SoundPlayer("Step", 0.5f, 0.5f, GameManager.Instance));
+            }
+            else
+            {
+                if (walkSound != null)
+                { 
+                    StopCoroutine(walkSound);
+                    walkSound = null;
+                }
+            }
         }
     }
 
