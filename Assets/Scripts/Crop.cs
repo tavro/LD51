@@ -9,12 +9,17 @@ public class Crop : MonoBehaviour
     [SerializeField] private float pullDistance = 1.0f;
 
     bool isFollowingMouse;
+    
+    public bool IsPulled { get; private set; }
+    public bool IsGone { get; private set; }
+
+    [SerializeField] private new SpriteRenderer renderer;
 
     void Update()
     {
         if (!GameManager.Instance.IsPaused)
         {
-            if (isFollowingMouse) 
+            if (isFollowingMouse && !IsPulled) 
             {
                 Vector2 mousePosGlobal = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 mousePosRelative = mousePosGlobal - (Vector2)transform.position;
@@ -25,13 +30,18 @@ public class Crop : MonoBehaviour
 
                 if (Mathf.Abs(pullAngle) <= pullAngleMargin && mousePosRelative.magnitude >= pullDistance)
                 {
-                    GameManager.Instance.Inventory.cropAmount++; // TODO: make differ if days past is greater (maybe via more crops)
-                    SceneManager.LoadScene("FarmScene"); // TODO: take care of in a CropHandler instead
-                    Destroy(gameObject); // TODO: maybe just make invisible and marked as pulled instead
+                    GameManager.Instance.Inventory.cropAmount++;
+                    PullOut();
                 }
 
                 if (Input.GetMouseButtonUp(0))
                     isFollowingMouse = false;
+            }
+
+            if (IsPulled)
+            {
+                renderer.sprite = null;
+                IsGone = true; // TODO: animated before setting to true
             }
         }
     }
@@ -42,5 +52,10 @@ public class Crop : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
                 isFollowingMouse = true;
         }
+    }
+
+    public void PullOut()
+    {
+        IsPulled = true;
     }
 }
