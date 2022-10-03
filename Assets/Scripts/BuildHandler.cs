@@ -76,21 +76,21 @@ public class BuildHandler : MonoBehaviour
 
     void Update() {
         if(canBuySheepFarm && Input.GetKeyDown(KeyCode.S)) {
-            Buyable buyable = new Buyable(null, 25, "SheepFarm");
+            Buyable buyable = new Buyable(null, 750, "SheepFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
                 Vector2 pos = new Vector2(buildSlot.transform.position.x, buildSlot.transform.position.y + GetBuildOffset());
                 Build(sheepFarmPrefab, pos, buyable.name);
             }
         }
         else if(canBuyCowFarm && Input.GetKeyDown(KeyCode.C)) {
-            Buyable buyable = new Buyable(null, 25, "CowFarm");
+            Buyable buyable = new Buyable(null, 1000, "CowFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
                 Vector2 pos = new Vector2(buildSlot.transform.position.x, buildSlot.transform.position.y + GetBuildOffset());
                 Build(cowFarmPrefab, pos, buyable.name);
             }
         }
         else if(canBuyFarmFarm && Input.GetKeyDown(KeyCode.F)) {
-            Buyable buyable = new Buyable(null, 25, "FarmFarm");
+            Buyable buyable = new Buyable(null, 2000, "FarmFarm");
             if(GameManager.Instance.CoinManager.Buy(buyable)) {
                 Build(farmPrefab, buildSlot.transform.position, buyable.name);
             }

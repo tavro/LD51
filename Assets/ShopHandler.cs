@@ -16,12 +16,12 @@ public class ShopHandler : MonoBehaviour, IInteractable
             GameManager.Instance.Inventory.eggAmount--;
         }
         while(GameManager.Instance.Inventory.woolAmount > 0) {
-            Sellable sellable = new Sellable(null, 30, "");
+            Sellable sellable = new Sellable(null, 20, "");
             GameManager.Instance.CoinManager.Sell(sellable); // 30
             GameManager.Instance.Inventory.woolAmount--;
         }
         while(GameManager.Instance.Inventory.milkAmount > 0) {
-            Sellable sellable = new Sellable(null, 50, "");
+            Sellable sellable = new Sellable(null, 100, "");
             GameManager.Instance.CoinManager.Sell(sellable); // 50
             GameManager.Instance.Inventory.milkAmount--;
         }
