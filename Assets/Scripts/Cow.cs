@@ -21,7 +21,7 @@ public class Cow : MonoBehaviour
 
     void ResetSpening() {
         isSpening = false;
-        spenePivot.transform.localScale = new Vector2(1.0f, 1.0f);
+        spenePivot.transform.localScale = new Vector2(0.5f, 0.5f);
         StopCoroutine(speningSound);
     }
 
@@ -82,7 +82,7 @@ public class Cow : MonoBehaviour
 
                 Vector2 currentMousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 float distance = Vector2.Distance(spenePivot.transform.position, currentMousePos);
-                spenePivot.transform.localScale = new Vector2(1.0f, distance*10.0f);
+                spenePivot.transform.localScale = new Vector2(0.5f, distance*10.0f);
             }
         }
     }
