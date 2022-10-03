@@ -48,7 +48,7 @@ public class Cow : MonoBehaviour
 
     GameObject temp;
     void Update() {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             if(!isReady) {
                 timePassed += Time.deltaTime;
@@ -94,7 +94,7 @@ public class Cow : MonoBehaviour
     }
 
     void OnMouseOver() {
-        if(!GameManager.Instance.IsPaused && isReady) {
+        if(GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE && isReady) {
             if(Input.GetMouseButtonDown(0)) {
                 Vector2 pos = new Vector2(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y - 0.25f);
                 temp = Instantiate(targetPrefab, pos, Quaternion.identity);

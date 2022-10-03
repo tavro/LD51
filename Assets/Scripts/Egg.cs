@@ -51,7 +51,7 @@ public class Egg : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.Instance.IsPaused)
+        if (GameManager.Instance.CurrPauseState == GameManager.PauseState.NONE)
         {
             if(isRemoved) {
                 transform.position = new Vector2(transform.position.x, transform.position.y + Time.deltaTime);
