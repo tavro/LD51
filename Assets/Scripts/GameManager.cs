@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private float dayTimer;
     public int Day { private set; get; }
     
-    private Dictionary<string, Vector2> boughtBuildings;
+    public Dictionary<string, Vector2> boughtBuildings;
     private Dictionary<string, int> buildingInteractionDays;  
     public int DaysSinceInteraction { private set; get; }
 

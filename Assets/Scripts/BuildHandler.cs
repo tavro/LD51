@@ -13,6 +13,20 @@ public class BuildHandler : MonoBehaviour
     [SerializeField]
     GameObject farmPrefab;
 
+    bool canBuySheepFarm = true;
+    bool canBuyCowFarm = true;
+    bool canBuyFarmFarm = true;
+
+    void Start() {
+        canBuySheepFarm = CheckIfBuilt("SheepFarm");
+        canBuyCowFarm = CheckIfBuilt("CowFarm");
+        canBuyFarmFarm = CheckIfBuilt("FarmFarm");
+    }
+
+    bool CheckIfBuilt(string name) {
+        return !GameManager.Instance.boughtBuildings.ContainsKey(name);
+    }
+
     public void SetBuildSlot(BuildSlot slot) {
         buildSlot = slot;
     }
@@ -27,10 +41,6 @@ public class BuildHandler : MonoBehaviour
         Destroy(buildSlot.gameObject);
         CloseUI();
     }
-
-    bool canBuySheepFarm = true;
-    bool canBuyCowFarm = true;
-    bool canBuyFarmFarm = true;
 
     [SerializeField] GameObject sheepUI;
     [SerializeField] GameObject cowUI;
