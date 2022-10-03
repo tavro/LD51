@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4cbcd9b84d70ab846a1467de17d4, type: 3}
   m_Name: Letter 3
   m_EditorClassIdentifier: 
-  day: 166
+  day: 266
   subject: Second reminder of loan repayment
   body: 'Hello for the third time dear customer,
 

@@ -14,22 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   day: 1
   subject: Repayment of your loan
-  body: 'Thank you so much for borrowing money from the Bank of Unreliable Accountants!
-    We are very happy to have you as our new customer. Per usual, the interest rate
-    of your loan is 900%. So, we are very excited to receive your payment of 1000
-    Riksdals withing one year.
-
-
-    If we do not receive your payment, we have no
-    qualms about taking your property as we see fit or alternatively reporting you
-    to the authorities.
-
-
-    Thank you again for being a customer at the Bank of
-    Unreliable Accountants.
-
-
-    Best regards,
-
-    Mon Eh Hungry, CEO of the Bank
-    of Unreliable Accountants'
+  body: "Thank you so much for borrowing money from the Bank of Unreliable Accountants!
+    \n\nWe are very happy to have you as our new customer. Per usual, the interest
+    rate of your loan is 900%. So, we are very excited to receive your payment of
+    1000 Riksdals withing one year.\n\nIf we do not receive your payment, we have
+    no qualms about taking your property as we see fit or alternatively reporting
+    you to the authorities.\n\nThank you again for being a customer at the Bank of
+    Unreliable Accountants.\n\nBest regards,\nMon Eh Hungry, CEO of the Bank of Unreliable
+    Accountants"
