@@ -10,8 +10,8 @@ public class LetterBox : MonoBehaviour, IInteractable
     [SerializeField] private Sprite openSprite;
     private Sprite closedSprite;
 
-    [SerializeField] private List<LetterData> letterDataList;
-    private LetterData nextLetterData, currLetterData;
+    [SerializeField] private List<LetterDataTwo> letterDataList;
+    private LetterDataTwo nextLetterData, currLetterData;
 
     private new SpriteRenderer renderer;
 
@@ -27,7 +27,7 @@ public class LetterBox : MonoBehaviour, IInteractable
         letterDataList.Sort(CompareLetterData);
         while (letterDataList.Count > 0)
         {
-            LetterData data = letterDataList[0];
+            LetterDataTwo data = letterDataList[0];
             letterDataList.RemoveAt(0);
 
             if (data.day >= GameManager.Instance.Day)
@@ -39,7 +39,7 @@ public class LetterBox : MonoBehaviour, IInteractable
         }
     }
 
-    private static int CompareLetterData(LetterData a, LetterData b)
+    private static int CompareLetterData(LetterDataTwo a, LetterDataTwo b)
     {
         return a.day - b.day;
     }

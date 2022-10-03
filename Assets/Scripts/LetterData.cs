@@ -10,3 +10,12 @@ public class LetterData : ScriptableObject
     [TextArea] public string body;
     [TextArea] public string author;
 }
+
+[System.Serializable]
+public class LetterDataTwo
+{
+	public int day;
+    public string subject;
+    [TextArea] public string body;
+    [TextArea] public string author;
+}

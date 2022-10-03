@@ -2125,16 +2125,148 @@ MonoBehaviour:
   activeLetter: {fileID: 522035945}
   openSprite: {fileID: 21300000, guid: f01bc57fabc3c1245969decf1633e9ed, type: 3}
   letterDataList:
-  - {fileID: 11400000, guid: 72f20db1fadd4b54291f5be37bebfa82, type: 2}
-  - {fileID: 11400000, guid: 976fb9f10ce9da447a8bfd0b61f0733e, type: 2}
-  - {fileID: 11400000, guid: 59265aabebd15f241b63d9fd7d5068c7, type: 2}
-  - {fileID: 11400000, guid: f64af01b8c0cf8bc08cec55732b5137e, type: 2}
-  - {fileID: 11400000, guid: cd0cbfc96c915034a8f84a8ff8476490, type: 2}
-  - {fileID: 11400000, guid: 312c4a4d15d780234bc69cc4c5ff21f5, type: 2}
-  - {fileID: 11400000, guid: 880c0a6e61beb974fa51bc18a2e56bf7, type: 2}
-  - {fileID: 11400000, guid: 73b56e4a73f503a438357499e62a942e, type: 2}
-  - {fileID: 11400000, guid: 02278f9fa48cc334aa9fcf25b1cab5f6, type: 2}
-  - {fileID: 11400000, guid: 1d91ebfccd021124cb2977e55d0146e2, type: 2}
+  - day: 62
+    subject: Out Now!
+    body: "The hottest new movie is now out on cinemas, Anna-Karin\u2019s Biggest
+      Trial! Follow Anna-Karin as she goes through the Swedish woods in search of
+      the lost president of a very internationally important, unspecified country
+      and fights everything that the Swedish nature has to offer! She will face many
+      perils, from wolfs to ice-giants to hot, half-naked men with huge six-packs!
+      Will Anna-Karin be able to survive? Watch Anna-Karin\u2019s Biggest Trial NOW
+      to find out!!!\n"
+    author: (We do not support going around half-naked with your six-pack out in
+      the Swedish woods in the middle of winter. It can be very cold and hospital
+      visits may be needed for the six-packs.)
+  - day: 25
+    subject: "Dear Mr. Karl \xC5ke"
+    body: "We here at the Bank of Unreliable Accountants are happily awaiting your
+      payment of your loan of 1000 Riksdals. We hope that you are doing as well as
+      we are. But of course, we would be doing even better if we got our money. But
+      no pressure! You still have ample of time to collect your money. Just don\u2019t
+      forget to send it to us once you\u2019re done.\n"
+    author: 'Best Regards,
+
+      Mon Eh Hungry,
+
+      CEO of the Bank of Unreliable
+      Accountants.'
+  - day: 50
+    subject: "Hi Karl \xC5ke"
+    body: 'Time is dire and Time is Money. We here at the Bank of Unreliable Accountants
+      heavily believe in that message. In face, we say it every morning at our mandatory
+      SCRUM meetings, that we have standing as we believe in efficiency, just like
+      Sandalen told us. Anyways.
+
+
+
+      It is not a lot of time left for you to
+      collect your money. Or Our money. Whatever.
+
+
+      So please hurry and give
+      Us Our 1000 Riksdals.'
+    author: 'Best Regards,
+
+
+      
+
+      Cap I Talism
+
+      Soon to be CEO of
+      the Bank of Unreliable Accountants, Waiting for Mon Eh Hungry to die already.'
+  - day: 37
+    subject: 'Kalle my man!!! '
+    body: "Im in the woods, so to speak, and I tink that we sould hang out soon!
+      Do you rememember wehn we where kids\u2019, and we used too play cow-and-farmer?
+      Good times! I used too bee the cow and you the farmer, rigt? Realy verry good
+      times.\n\nI hope that we can met up soon!\n\n"
+    author: 'Kisses and Hugs,
+
+      Olle-August'
+  - day: 40
+    subject: Letter from Grandma 1
+    body: "Hej Karl!\n\nHoppas att allt \xE4r bra med dig! Jag saknar dig v\xE4ldigt
+      mycket. Det \xE4r lite tomt h\xE4r med bara Lars-Erik och jag. Vi beh\xF6ver
+      dig h\xE4r hemma, ditt lilla busfr\xF6! Men vi f\xF6rst\xE5r att du har mycket
+      att g\xF6ra med \xE5kern. Vi vill ju g\xE4rna att du ska uppfylla dina dr\xF6mmar,
+      och du har ju alltid dr\xF6mt om att \xE4ga en farm med lamm och kycklingar.
+      Vi vill ju bara att du ska vara lycklig.\n"
+    author: "\xC4lskar dig, hoppas att vi kan ses snart,\nMormor"
+  - day: 83
+    subject: Reminder of loan repayment
+    body: 'Hello again dear customer,
+
+
+      We at the Bank of Unreliable Accountants
+      hope that you are doing well. We would like to remind you that you loan is
+      due to be repaid in 100 days. We hope that this time plan works for you. If
+      you would like additional time, that is unfortunately not possible, as we do
+      not care about your needs or personal problems.
+
+
+      Remember: time is money.'
+    author: "Best regards,\nMon Eh Hungry, \nCEO of the Bank of Unreliable Accountants"
+  - day: 133
+    subject: Second reminder of loan repayment
+    body: 'Hello for the third time dear customer,
+
+
+      We at the Bank of Unreliable
+      Accountants are starting to get impatient at your lack of repayment regarding
+      your loan. We are not money hungry, but we would very much like to get back
+      the money that you borrowed from us, with our customary 900% interest rate.
+      We hope that you will be able to repay us soon. The deadline is in 50 days.
+
+
+      As
+      mentioned before, we accept no excuses. Not even from you, special snowflake.
+      Please have a good day.'
+    author: "Regards,\nMon Eh Hungry, \nCEO of the Bank of Unreliable Accountants."
+  - day: 1
+    subject: Repayment of your loan
+    body: "Thank you so much for borrowing money from the Bank of Unreliable Accountants!
+      \n\nWe are very happy to have you as our new customer. Per usual, the interest
+      rate of your loan is 900%. So, we are very excited to receive your payment
+      of 10000 Riksdals within six months.\n\nIf we do not receive your payment,
+      we have no qualms about taking your property as we see fit or alternatively
+      reporting you to the authorities.\n\nThank you again for being a customer at
+      the Bank of Unreliable Accountants."
+    author: "Best regards,\nMon Eh Hungry, \nCEO of the Bank of Unreliable Accountants"
+  - day: 112
+    subject: "Dear Karl \xC5ke!"
+    body: 'We now present to you, the best evening course you will ever take! No
+      matter if you have a PhD in Computer Science or are simply a lonely farmer,
+      this will Rock Your World!!! For only 500 Riksdals, you can join Sandalen at
+      a 30 weeks long program to learn all about the super boring technicalities
+      of Software Engineering. The course includes: SCRUM-meetings, never-ending
+      Risk assessment, even more SCRUM-meetings, Requirements for playing Minecraft
+      on your computer, and a step by step guide on how to lead and take part in
+      a SCRUM-meetings. '
+    author: "If you are interested in lectures, even more boring lecture exercises,
+      and an evening course that you will never forget, please contact us at: \nwww.julkalender@Computer.com."
+  - day: 100
+    subject: Karl.
+    body: 'You might have heard rumors of an internal conflict at the Bank of Time
+      is Money, previously known as the Bank of Unreliable Accountants. That is completely
+      unTure. We do not believe in internal conflicts. Only Money.
+
+
+
+      
+
+      Speaking
+      of Our Lord and Saviour, Money. It is now only 50 days left for you to give
+      Us your Money. We are not having fun anymore or playing any games. We for real
+      want your money. Or, We will kill a kitten Every 10 Seconds that you do not
+      give Us Our Money.
+
+'
+    author: 'Regards,
+
+      Cap I Talism,
+
+      new CEO of the Bank of Time is
+      Money'
 --- !u!1 &1201491529
 GameObject:
   m_ObjectHideFlags: 0
